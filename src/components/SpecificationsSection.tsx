@@ -110,7 +110,7 @@ export default function SpecificationsSection() {
             <div className="mb-3 flex items-center justify-center gap-3 sm:mb-4">
               <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
               <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-                Craftsmanship &amp; Finish · 05
+                Craftsmanship &amp; Finish · 06
               </span>
               <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
             </div>
@@ -135,13 +135,13 @@ export default function SpecificationsSection() {
                 type="button"
                 onClick={() => handleTabClick(index)}
                 aria-pressed={index === activeIndex}
-                className={`relative min-w-[150px] px-6 py-5 text-left text-sm font-semibold uppercase tracking-[0.12em] transition-colors sm:min-w-[190px] sm:text-base ${
+                className={`relative min-w-[150px] px-4 py-5 text-left text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors min-[380px]:text-xs sm:min-w-[190px] sm:px-6 sm:text-base sm:tracking-[0.12em] ${
                   index === activeIndex
                     ? "bg-[#2b2623] text-white"
                     : "text-[#625a55] hover:bg-white hover:text-coral"
                 }`}
               >
-                <span className="mr-3 text-[10px] text-coral">{String(index + 1).padStart(2, "0")}</span>
+                <span className="mr-2 text-[9px] text-coral sm:mr-3 sm:text-[10px]">{String(index + 1).padStart(2, "0")}</span>
                 {item.title}
                 {index === activeIndex && (
                   <span

@@ -260,7 +260,7 @@ export default function PlanSection() {
             <div className="mb-3 flex items-center gap-2.5 sm:mb-4 sm:gap-3">
               <span className="h-px w-6 bg-[#2c2b29]/25 sm:w-12" />
               <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-                Architectural Layout · 04
+                Architectural Layout · 05
               </span>
             </div>
 

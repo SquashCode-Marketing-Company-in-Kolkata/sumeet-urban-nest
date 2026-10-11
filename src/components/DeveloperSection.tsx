@@ -121,7 +121,7 @@ export default function DeveloperSection() {
           <div className="mb-3 flex items-center justify-center gap-3 sm:mb-4">
             <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
             <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-              Legacy &amp; Trust · 09
+              Legacy &amp; Trust · 10
             </span>
             <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
           </div>

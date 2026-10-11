@@ -1,21 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useEnquiry } from "@/components/EnquiryPanel";
+import { useWalkthroughVideo } from "@/components/WalkthroughVideo";
 
 export default function WalkthroughSection() {
-  const { openEnquiry } = useEnquiry();
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
+  const openVideo = useWalkthroughVideo();
 
   return (
     <section
@@ -28,7 +17,7 @@ export default function WalkthroughSection() {
           <div className="mb-3 flex items-center justify-center gap-2.5 sm:mb-4 sm:gap-3">
             <span className="h-px w-6 bg-[#2c2b29]/25 sm:w-12" />
             <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-              Architectural Experience · 02
+              Architectural Experience · 04
             </span>
             <span className="h-px w-6 bg-[#2c2b29]/25 sm:w-12" />
           </div>
@@ -47,8 +36,7 @@ export default function WalkthroughSection() {
           />
 
           <div
-            onClick={() => setIsOpen(true)}
-            className="group relative aspect-[16/10] w-full cursor-pointer overflow-hidden rounded-2xl border border-[#2c2b29]/15 bg-[#1a1715] shadow-[0_25px_70px_-15px_rgba(83,55,39,0.22)] sm:aspect-[16/9] sm:rounded-3xl md:rounded-[32px]"
+            className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-[#2c2b29]/15 bg-[#1a1715] shadow-[0_25px_70px_-15px_rgba(83,55,39,0.22)] sm:aspect-[16/9] sm:rounded-3xl md:rounded-[32px]"
           >
             {/* The Main Project Image */}
             <Image
@@ -78,10 +66,7 @@ export default function WalkthroughSection() {
             <button
               type="button"
               aria-label="Play walkthrough video"
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsOpen(true);
-              }}
+              onClick={openVideo}
               className="group/btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-coral/50"
             >
               {/* Outer pulsing ring */}
@@ -158,80 +143,6 @@ export default function WalkthroughSection() {
         </div>
       </div>
 
-      {/* Cinematic Modal Preview when Play is clicked */}
-      {isOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Walkthrough cinema preview"
-          onClick={() => setIsOpen(false)}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 backdrop-blur-xl sm:p-6 md:p-10"
-        >
-          <button
-            type="button"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close walkthrough preview"
-            className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/50 text-2xl text-white transition hover:bg-white hover:text-black sm:right-6 sm:top-6 sm:h-12 sm:w-12"
-          >
-            ×
-          </button>
-
-          <div
-            className="relative flex max-h-[90vh] w-full max-w-[1500px] flex-col overflow-hidden rounded-2xl border border-white/20 bg-[#161311] shadow-[0_30px_90px_rgba(0,0,0,0.8)]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Media Window */}
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
-              <Image
-                src="/images/exterior/podium-top-view.webp"
-                alt="Sumeet Urban Nest Walkthrough"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1500px) 1500px, 95vw"
-                priority
-              />
-
-              {/* Ambient overlay */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 text-white">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-coral sm:text-xs">
-                  Sumeet Urban Nest · Cinematic Preview
-                </span>
-                <h4 className="mt-1 text-lg font-light tracking-wide text-white sm:text-2xl md:text-3xl">
-                  Podium Garden &amp; Architectural Walkthrough
-                </h4>
-                <p className="mt-2 max-w-[700px] text-xs text-white/75 sm:text-sm">
-                  Experience the open layout, landscaped greens, and elevated lifestyle at Khamardih, Shankar Nagar.
-                </p>
-              </div>
-            </div>
-
-            {/* Modal Bottom Action Bar */}
-            <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 bg-[#1e1a17] px-5 py-4 sm:flex-row sm:px-8">
-              <p className="text-xs text-white/60 sm:text-sm">
-                Ready to explore the project in person?
-              </p>
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => { setIsOpen(false); openEnquiry(); }}
-                  className="rounded-full bg-coral px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-coral-dark sm:text-sm"
-                >
-                  Schedule Site Visit
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setIsOpen(false)}
-                  className="rounded-full border border-white/25 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.16em] text-white/80 transition hover:bg-white/10 sm:text-sm"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

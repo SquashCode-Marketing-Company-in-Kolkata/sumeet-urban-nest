@@ -1,5 +1,5 @@
 const googleMapUrl =
-  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d708.0936506810683!2d81.6740626!3d21.2556491!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd7d5b577cbb%3A0xc053073222c4a135!2sSumeet%20Urban%20Nest!5e0!3m2!1sen!2sin!4v1791615200475!5m2!1sen!2sin";
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1936.1935760810461!2d81.6740626!3d21.2556491!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd7d5b577cbb%3A0xc053073222c4a135!2sSumeet%20Urban%20Nest!5e0!3m2!1sen!2sin!4v1791615200475!5m2!1sen!2sin";
 
 const distances = [
   { place: "Expressway", distance: "1.8 km" },
@@ -34,7 +34,7 @@ export default function LocationSection() {
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
             <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-              Strategic Connectivity · 06
+              Strategic Connectivity · 07
             </span>
           </div>
 

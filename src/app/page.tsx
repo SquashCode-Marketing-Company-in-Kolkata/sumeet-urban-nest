@@ -3,6 +3,8 @@ import HeroSection from "@/components/HeroSection";
 import OverviewSection from "@/components/OverviewSection";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import GallerySection from "@/components/GallerySection";
+import WalkthroughSection from "@/components/WalkthroughSection";
+import { WalkthroughVideoProvider } from "@/components/WalkthroughVideo";
 import LocationSection from "@/components/LocationSection";
 import SpecificationsSection from "@/components/SpecificationsSection";
 import PlanSection from "@/components/PlanSection";
@@ -16,21 +18,24 @@ import { EnquiryProvider } from "@/components/EnquiryPanel";
 export default function Home() {
   return (
     <EnquiryProvider>
-      <main className="min-h-screen bg-white">
-        <Header />
-        <HeroSection />
-        <OverviewSection />
-        <AmenitiesSection />
-        <GallerySection />
-        <PlanSection />
-        <SpecificationsSection />
-        <LocationSection />
-        <LayoutSection />
-        <ContactSection />
-        <DeveloperSection />
-        <Footer />
-        <SiteVisitBar />
-      </main>
+      <WalkthroughVideoProvider>
+        <main className="min-h-screen bg-white">
+          <Header />
+          <HeroSection />
+          <OverviewSection />
+          <AmenitiesSection />
+          <GallerySection />
+          <WalkthroughSection />
+          <PlanSection />
+          <SpecificationsSection />
+          <LocationSection />
+          <LayoutSection />
+          <ContactSection />
+          <DeveloperSection />
+          <Footer />
+          <SiteVisitBar />
+        </main>
+      </WalkthroughVideoProvider>
     </EnquiryProvider>
   );
 }

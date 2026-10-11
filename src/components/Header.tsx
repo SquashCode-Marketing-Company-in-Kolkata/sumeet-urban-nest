@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useEnquiry } from "@/components/EnquiryPanel";
+import { useWalkthroughVideo } from "@/components/WalkthroughVideo";
 
 const navLinks = [
   { name: "Amenities", href: "#amenities", id: "amenities" },
   { name: "Gallery", href: "#gallery", id: "gallery" },
+  { name: "Walkthrough", href: "#walkthrough", id: "walkthrough" },
   { name: "Master Plan", href: "#plan", id: "plan" },
   { name: "Specifications", href: "#specifications", id: "specifications" },
   { name: "Location", href: "#location", id: "location" },
@@ -17,6 +19,7 @@ const navLinks = [
 
 export default function Header() {
   const { openEnquiry } = useEnquiry();
+  const openWalkthroughVideo = useWalkthroughVideo();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -67,6 +70,11 @@ export default function Header() {
     id: string
   ) => {
     e.preventDefault();
+    if (id === "walkthrough") {
+      setIsMobileMenuOpen(false);
+      openWalkthroughVideo();
+      return;
+    }
     setActiveSection(id);
     setIsMobileMenuOpen(false);
 
