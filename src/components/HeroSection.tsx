@@ -71,10 +71,6 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        <button type="button" onClick={() => openEnquiry("Reveal Price")} className="w-full max-w-[340px] rounded-full bg-coral px-5 py-3 text-sm font-bold text-white shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:hidden">
-          Reveal Price
-        </button>
-
         <button
           type="button"
           onClick={() => openEnquiry("Book Your 2 & 3 BHK Apartments")}
@@ -119,31 +115,33 @@ export default function HeroSection() {
           </span>
         </button>
 
-        {/* Compact offer ticket for phones */}
+        {/* Single offer and enquiry action for phones */}
         <button
           type="button"
-          onClick={() => openEnquiry("Book Your 2 & 3 BHK Apartments")}
-          aria-label="Enquire about the 30:70 payment plan, first 25 bookings only"
-          className="group relative w-full max-w-[340px] cursor-pointer rounded-2xl border border-dashed border-[#F0A566]/60 bg-[#14100D]/75 px-4 pb-3.5 pt-3 text-left text-white shadow-[0_16px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors duration-200 active:bg-[#14100D]/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F0A566]/60 md:hidden"
+          onClick={() => openEnquiry("Reveal Price")}
+          aria-label="Reveal price for the 30:70 payment plan, first 25 bookings only"
+          className="group w-full max-w-[360px] cursor-pointer rounded-[22px] border border-white/70 bg-[#fffaf5]/95 p-4 text-left text-[#2B2623] shadow-[0_16px_40px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-200 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-coral/70 md:hidden"
         >
-          <span className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.16em] text-[#F0A566]">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3 w-3 shrink-0" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
-            First 25 bookings only
-            <span className="ml-auto text-[8px] font-normal normal-case tracking-normal text-white/45">*T&amp;C apply</span>
+          <span className="flex items-center justify-between gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-coral/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.1em] text-coral-dark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3 w-3 shrink-0" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
+              First 25 bookings only
+            </span>
+            <span className="shrink-0 text-[9px] text-[#7B716B]">*T&amp;C apply</span>
           </span>
-          <span className="mt-2.5 flex items-center gap-2.5 min-[380px]:gap-3">
+          <span className="mt-3 flex items-center gap-4">
+            <span className="min-w-0 flex-1 border-r border-[#DCCFC5]">
+              <span className="block text-[28px] font-semibold leading-none tracking-[-0.05em] text-coral-dark">30%</span>
+              <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.11em] text-[#625953]">Pay now</span>
+            </span>
             <span className="min-w-0 flex-1">
-              <span className="block text-[26px] font-semibold leading-none tracking-[-0.04em] text-[#F0A566]">30%</span>
-              <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.14em] text-white/80">Pay now</span>
+              <span className="block text-[28px] font-semibold leading-none tracking-[-0.05em]">70%</span>
+              <span className="mt-1 block whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.08em] text-[#625953]">On possession</span>
             </span>
-            <span aria-hidden="true" className="h-9 w-px bg-white/20" />
-            <span className="min-w-0 flex-1">
-              <span className="block text-[26px] font-semibold leading-none tracking-[-0.04em] text-white">70%</span>
-              <span className="mt-1 block whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.08em] text-white/80 min-[380px]:tracking-[0.14em]">On possession</span>
-            </span>
-            <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-coral text-lg text-white shadow-[0_6px_18px_rgba(232,115,74,0.45)] transition-transform duration-200 group-active:translate-x-0.5">
-              &rarr;
-            </span>
+          </span>
+          <span className="mt-3 flex h-11 items-center justify-between rounded-full bg-coral px-5 text-[13px] font-bold text-white shadow-[0_6px_16px_rgba(232,115,74,0.25)]">
+            Reveal Price
+            <span aria-hidden="true" className="text-lg leading-none transition-transform duration-200 group-active:translate-x-1">&rarr;</span>
           </span>
         </button>
       </div>
