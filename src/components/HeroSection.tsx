@@ -63,7 +63,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/25 max-md:from-black/75 max-md:via-black/25 max-md:to-black/10" />
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1720px] flex-col justify-end gap-6 px-6 pb-16 pt-24 sm:px-10 sm:pb-20 md:px-14 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:px-20 lg:pb-[max(4.5rem,11svh)] xl:px-28 2xl:px-36">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1720px] flex-col justify-end gap-4 px-6 pb-16 pt-24 sm:px-10 sm:pb-20 md:gap-6 md:px-14 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:px-20 lg:pb-[max(4.5rem,11svh)] xl:px-28 2xl:px-36">
         <h1 className="min-w-0 text-[clamp(1.125rem,5.9vw,2.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] md:text-[clamp(2.5rem,min(4.6vw,9svh),4.75rem)] lg:text-[clamp(2.125rem,min(3.4vw,9svh),4.75rem)] xl:text-[clamp(2.5rem,min(4.1vw,9svh),4.75rem)]">
           <span className="block whitespace-nowrap font-normal">Khamardih, Shankar Nagar&apos;s</span>
           <span className="block whitespace-nowrap">
@@ -120,28 +120,24 @@ export default function HeroSection() {
           type="button"
           onClick={() => openEnquiry("Reveal Price")}
           aria-label="Reveal price for the 30:70 payment plan, first 25 bookings only"
-          className="group w-full max-w-[360px] cursor-pointer rounded-[22px] border border-white/70 bg-[#fffaf5]/95 p-4 text-left text-[#2B2623] shadow-[0_16px_40px_rgba(0,0,0,0.3)] backdrop-blur-md transition-transform duration-200 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-coral/70 md:hidden"
+          className="group w-full max-w-[360px] cursor-pointer rounded-2xl border border-white/70 bg-[#fffaf5]/95 px-3.5 py-2.5 text-left text-[#2B2623] shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-md transition-transform duration-200 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-coral/70 md:hidden"
         >
           <span className="flex items-center justify-between gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-coral/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.1em] text-coral-dark">
+            <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-[0.08em] text-coral-dark">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3 w-3 shrink-0" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
               First 25 bookings only
             </span>
-            <span className="shrink-0 text-[9px] text-[#7B716B]">*T&amp;C apply</span>
+            <span className="shrink-0 text-[8px] text-[#7B716B]">*T&amp;C apply</span>
           </span>
-          <span className="mt-3 flex items-center gap-4">
-            <span className="min-w-0 flex-1 border-r border-[#DCCFC5]">
-              <span className="block text-[28px] font-semibold leading-none tracking-[-0.05em] text-coral-dark">30%</span>
-              <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.11em] text-[#625953]">Pay now</span>
+          <span className="mt-2 flex items-center justify-between gap-1.5">
+            <span className="min-w-0 whitespace-nowrap text-[10px] font-medium leading-[1.4]">
+              <span className="block"><strong className="text-[14px] font-bold text-coral-dark">30%</strong> pay now</span>
+              <span className="block"><strong className="text-[14px] font-bold">70%</strong> on possession</span>
             </span>
-            <span className="min-w-0 flex-1">
-              <span className="block text-[28px] font-semibold leading-none tracking-[-0.05em]">70%</span>
-              <span className="mt-1 block whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.08em] text-[#625953]">On possession</span>
+            <span className="flex h-9 shrink-0 items-center gap-1 rounded-full bg-coral px-3 text-[11px] font-bold text-white shadow-[0_5px_14px_rgba(232,115,74,0.25)]">
+              Reveal Price
+              <span aria-hidden="true" className="text-base leading-none transition-transform duration-200 group-active:translate-x-1">&rarr;</span>
             </span>
-          </span>
-          <span className="mt-3 flex h-11 items-center justify-between rounded-full bg-coral px-5 text-[13px] font-bold text-white shadow-[0_6px_16px_rgba(232,115,74,0.25)]">
-            Reveal Price
-            <span aria-hidden="true" className="text-lg leading-none transition-transform duration-200 group-active:translate-x-1">&rarr;</span>
           </span>
         </button>
       </div>
