@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import Preloader from "@/components/Preloader";
+import Script from "next/script";
 import LeadAttribution from "@/components/LeadAttribution";
 import "./globals.css";
 
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "2 BHK",
     "3 BHK",
     "Chhattisgarh",
-    "Sumeet Infraventures",
+    "Sumeet Infracon Pvt. Ltd.",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -63,9 +63,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={montserrat.variable}>
-      <head>
-        {/* Google Tag Manager */}
-        <script
+      <body className={`${montserrat.className} antialiased`}>
+        <Script
+          id="google-tag-manager"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -74,9 +75,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TZMGJLFG');`,
           }}
         />
-        {/* End Google Tag Manager */}
-      </head>
-      <body className={`${montserrat.className} antialiased`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -88,7 +86,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         <LeadAttribution />
-        <Preloader />
         {children}
       </body>
     </html>

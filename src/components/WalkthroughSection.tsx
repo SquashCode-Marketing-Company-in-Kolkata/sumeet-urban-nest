@@ -23,7 +23,7 @@ export default function WalkthroughSection() {
           </div>
 
           <h2 className="whitespace-nowrap text-[13px] min-[380px]:text-[15px] sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.14em] min-[380px]:tracking-[0.18em] sm:tracking-[0.28em] text-coral uppercase">
-            W A L K T H R O U G H
+            WALKTHROUGH
           </h2>
         </div>
 
@@ -44,8 +44,7 @@ export default function WalkthroughSection() {
               alt="Podium garden walkthrough at Sumeet Urban Nest"
               fill
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.025]"
-              sizes="(min-width: 1920px) 1600px, 94vw"
-              priority
+              sizes="(max-width: 1080px) 100vw, 1080px"
             />
 
             {/* Subtle cinematic gradient vignette */}
@@ -121,7 +120,7 @@ export default function WalkthroughSection() {
             {/* Right Editorial Narrative */}
             <div className="flex flex-col justify-between gap-4 md:col-span-5 md:pt-1">
               <p className="section-description font-normal text-[#5c544e]">
-                Step into Raipur’s first BOHK residences through an elevated visual tour across 1.76 acres of lush landscaped podium greens, rooftop recreation, and skyward towers at Khamardih, Shankar Nagar.
+                Step into Khamardih, Shankar Nagar&apos;s first BOHK homes through an elevated visual tour across 1.76 acres of lush landscaped podium greens, rooftop recreation, and skyward towers.
               </p>
 
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#7d7168]">

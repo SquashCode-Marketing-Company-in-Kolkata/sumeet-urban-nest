@@ -11,6 +11,7 @@ export default function OverviewSection() {
         alt=""
         width={2034}
         height={773}
+        sizes="(min-width: 1280px) 700px, (min-width: 1024px) 620px, (min-width: 768px) 500px, (min-width: 640px) 400px, 300px"
         aria-hidden="true"
         className="pointer-events-none absolute left-0 bottom-0 z-0 h-auto w-[300px] max-w-none -scale-x-100 translate-y-0 select-none opacity-25 sm:left-0 sm:w-[400px] md:left-0 md:w-[500px] lg:-left-12 lg:w-[620px] lg:translate-y-[32%] lg:opacity-30 xl:w-[700px]"
       />
@@ -21,7 +22,7 @@ export default function OverviewSection() {
           alt="Circular garden living at Sumeet Urban Nest"
           width={1832}
           height={858}
-          sizes="(min-width: 1024px) 55vw, 100vw"
+          sizes="(min-width: 1024px) 50vw, (max-width: 1080px) 100vw, 1080px"
           className="h-auto w-full mix-blend-multiply [mask-image:radial-gradient(ellipse_at_center,black_58%,transparent_74%)] lg:scale-110"
         />
 
@@ -37,7 +38,7 @@ export default function OverviewSection() {
 
           {/* Main Heading in Orange */}
           <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
-            O V E R V I E W
+            OVERVIEW
           </h2>
 
           <p className="section-description mx-auto mt-6 max-w-[780px] font-light text-[#2c2b29] sm:mt-8 lg:mx-0">

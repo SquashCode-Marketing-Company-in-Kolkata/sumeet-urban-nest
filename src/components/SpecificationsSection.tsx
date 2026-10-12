@@ -116,7 +116,7 @@ export default function SpecificationsSection() {
             </div>
 
             <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
-              S P E C I F I C A T I O N S
+              SPECIFICATIONS
             </h2>
           </div>
           <div className="absolute bottom-0 left-0 hidden items-center gap-3 md:flex">{arrowControls}</div>

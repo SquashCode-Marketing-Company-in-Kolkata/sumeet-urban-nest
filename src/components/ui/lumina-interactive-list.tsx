@@ -45,7 +45,7 @@ export function LuminaInteractiveList({
           </div>
 
           <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
-            G A L L E R Y
+            GALLERY
           </h2>
         </div>
 
@@ -101,8 +101,7 @@ export function LuminaInteractiveList({
                   src={slide.media}
                   alt={slide.title}
                   fill
-                  priority={index === 0}
-                  sizes={isHero ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
+                  sizes={isHero ? "(min-width: 1024px) 50vw, (max-width: 1080px) 100vw, 1080px" : "(min-width: 1024px) 25vw, (max-width: 1080px) 50vw, 540px"}
                   className="object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-colors group-hover:from-black/85" />

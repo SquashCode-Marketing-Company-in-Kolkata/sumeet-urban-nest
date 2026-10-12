@@ -267,7 +267,7 @@ export default function AmenitiesSection() {
           </div>
 
           <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
-            A M E N I T I E S
+            AMENITIES
           </h2>
 
           <p className="section-description mx-auto mt-4 sm:mt-6 max-w-[680px] text-[#6d625c]">
@@ -290,9 +290,9 @@ export default function AmenitiesSection() {
                 <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#ffc79b]">
                   Outdoor living
                 </p>
-                <h4 className="text-lg font-semibold sm:text-xl md:text-2xl">
+                <h3 className="text-lg font-semibold sm:text-xl md:text-2xl">
                   Podium + Ground
-                </h4>
+                </h3>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2 sm:gap-1.5 sm:p-5 lg:grid-cols-1">
@@ -324,9 +324,9 @@ export default function AmenitiesSection() {
                 <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#ffc79b]">
                   Under open skies
                 </p>
-                <h4 className="text-lg font-semibold sm:text-xl md:text-2xl">
+                <h3 className="text-lg font-semibold sm:text-xl md:text-2xl">
                   Rooftop
-                </h4>
+                </h3>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2 sm:gap-1.5 sm:p-5 lg:grid-cols-1">
@@ -358,9 +358,9 @@ export default function AmenitiesSection() {
                 <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#ffc79b]">
                   Wellness + community
                 </p>
-                <h4 className="text-lg font-semibold sm:text-xl md:text-2xl">
+                <h3 className="text-lg font-semibold sm:text-xl md:text-2xl">
                   Club
-                </h4>
+                </h3>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2 sm:gap-1.5 sm:p-5 lg:grid-cols-1">

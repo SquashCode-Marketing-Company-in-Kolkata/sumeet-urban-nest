@@ -23,9 +23,18 @@ const heroSlides = [
 
 export default function HeroSection() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [loadRemainingSlides, setLoadRemainingSlides] = useState(false);
   const { openEnquiry } = useEnquiry();
 
   useEffect(() => {
+    const loadSlides = () => setLoadRemainingSlides(true);
+    if (document.readyState === "complete") loadSlides();
+    else window.addEventListener("load", loadSlides, { once: true });
+    return () => window.removeEventListener("load", loadSlides);
+  }, []);
+
+  useEffect(() => {
+    if (!loadRemainingSlides) return;
     const interval = window.setInterval(() => {
       setActiveSlide((currentSlide) =>
         currentSlide === heroSlides.length - 1 ? 0 : currentSlide + 1,
@@ -33,13 +42,13 @@ export default function HeroSection() {
     }, 4500);
 
     return () => window.clearInterval(interval);
-  }, []);
+  }, [loadRemainingSlides]);
 
   return (
     <section id="hero" className="relative h-[100svh] min-h-[540px] max-h-[1100px] w-full overflow-hidden max-md:min-h-0">
       {/* Hero background slider */}
       <div className="absolute inset-0">
-        {heroSlides.map((slide, index) => (
+        {heroSlides.map((slide, index) => (index === 0 || (loadRemainingSlides && index <= activeSlide + 1) || index === activeSlide) && (
           <picture
             key={slide.src}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
@@ -47,7 +56,7 @@ export default function HeroSection() {
             }`}
           >
             <source media="(max-width: 767px)" srcSet={slide.mobileSrc} />
-            <img src={slide.src} alt={slide.alt} className="h-full w-full object-cover object-center" />
+            <img src={slide.src} alt={slide.alt} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "low"} className="h-full w-full object-cover object-center" />
           </picture>
         ))}
         {/* Dark gradient overlay for text readability */}
@@ -61,6 +70,10 @@ export default function HeroSection() {
             first <span className="font-semibold text-coral">BOHK homes</span> !
           </span>
         </h1>
+
+        <button type="button" onClick={() => openEnquiry("Request A Call Back / Reveal Price")} className="w-full max-w-[340px] rounded-full bg-coral px-5 py-3 text-sm font-bold text-white shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:hidden">
+          Request A Call Back / Reveal Price
+        </button>
 
         <button
           type="button"
@@ -139,10 +152,8 @@ export default function HeroSection() {
             onClick={() => setActiveSlide(index)}
             aria-label={`Show hero slide ${index + 1}`}
             aria-current={index === activeSlide ? "true" : undefined}
-            className={`h-2.5 w-2.5 rounded-full border-2 border-[#F0A566] transition-all sm:h-3 sm:w-3 ${
-              index === activeSlide ? "scale-110 bg-[#F0A566]" : "bg-transparent"
-            }`}
-          />
+            className="flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          ><span className={`h-2.5 w-2.5 rounded-full border-2 border-[#F0A566] transition-all sm:h-3 sm:w-3 ${index === activeSlide ? "scale-110 bg-[#F0A566]" : "bg-transparent"}`} /></button>
         ))}
       </div>
     </section>

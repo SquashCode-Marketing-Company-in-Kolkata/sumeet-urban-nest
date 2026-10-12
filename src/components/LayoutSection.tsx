@@ -32,7 +32,7 @@ export default function LayoutSection() {
             <span className="h-px w-6 bg-[#2c2b29]/25 sm:w-12" />
           </div>
           <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
-            T O W E R S
+            TOWERS
           </h2>
           <p className="section-description mx-auto mt-5 max-w-[620px] text-[#6d625c]">
             Three distinct towers, thoughtfully composed to bring light, privacy and openness into everyday living.

@@ -15,6 +15,7 @@ export default function NotFound() {
           height={819}
           className="h-auto w-40"
           priority
+          sizes="160px"
         />
         <p className="mt-12 text-sm font-semibold uppercase tracking-[0.3em] text-coral">Error 404</p>
         <h1 className="mt-4 text-5xl font-light tracking-[-0.04em] text-[#2B2623] sm:text-6xl">Page not found</h1>

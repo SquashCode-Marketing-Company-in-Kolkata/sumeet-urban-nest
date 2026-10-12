@@ -1,3 +1,5 @@
+import DeferredMap from "@/components/DeferredMap";
+
 const googleMapUrl =
   "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1936.1935760810461!2d81.6740626!3d21.2556491!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd7d5b577cbb%3A0xc053073222c4a135!2sSumeet%20Urban%20Nest!5e0!3m2!1sen!2sin!4v1791615200475!5m2!1sen!2sin";
 
@@ -17,15 +19,7 @@ export default function LocationSection() {
       <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 2xl:px-36">
         <div className="grid w-full overflow-hidden rounded-[28px] bg-white shadow-[0_24px_70px_rgba(71,49,38,0.1)] lg:grid-cols-2 lg:rounded-[36px]">
           <div className="relative order-2 min-h-[380px] w-full overflow-hidden bg-[#e9e8e4] sm:min-h-[500px] lg:order-none lg:min-h-[720px]">
-          <iframe
-            src={googleMapUrl}
-            title="Sumeet Urban Nest location on Google Maps"
-            className="absolute inset-0 h-full w-full border-0"
-            style={{ colorScheme: "light" }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
+          <DeferredMap src={googleMapUrl} />
         </div>
 
         <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-8 lg:py-12 xl:px-12">
@@ -39,7 +33,7 @@ export default function LocationSection() {
           </div>
 
           <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
-            L O C A T I O N
+            LOCATION
           </h2>
 
           <p className="section-description max-w-2xl text-[#747474]">

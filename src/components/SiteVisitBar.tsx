@@ -11,7 +11,7 @@ import { useEnquiry } from "@/components/EnquiryPanel";
 type Errors = Partial<Record<"name" | "phone" | "budget" | "bhk" | "pincode" | "form", string>>;
 
 const inputClassName =
-  "h-11 min-w-0 rounded-full border border-[#2B2623]/15 bg-white/85 px-4 text-xs text-[#2B2623] outline-none transition placeholder:text-[#2B2623]/45 focus:border-coral focus:ring-2 focus:ring-coral/15 lg:h-9 lg:px-3";
+  "h-12 min-w-0 rounded-full border border-[#2B2623]/15 bg-white/85 px-4 text-sm text-[#2B2623] outline-none transition placeholder:text-[#2B2623]/45 focus:border-coral focus:ring-2 focus:ring-coral/15";
 
 export default function SiteVisitBar() {
   const submitLead = useLeadSubmission();
@@ -58,7 +58,7 @@ export default function SiteVisitBar() {
     if (!/^[6-9]\d{9}$/.test(phone.slice(-10))) nextErrors.phone = "Enter a valid 10-digit phone";
     if (!budget) nextErrors.budget = "Select your budget";
     if (!bhk) nextErrors.bhk = "Select Configuration";
-    if (!/^\d{6}$/.test(pincode)) nextErrors.pincode = "Enter a valid 6-digit pincode";
+    if (pincode && !/^\d{6}$/.test(pincode)) nextErrors.pincode = "Enter a valid 6-digit pincode";
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length === 0) {
@@ -75,16 +75,16 @@ export default function SiteVisitBar() {
   if (!isVisible || isDismissed) return null;
 
   return (
-    <aside className="site-visit-bar fixed inset-x-6 bottom-4 z-[90] mx-auto max-w-[1040px] animate-[enquiry-sheet-in_340ms_cubic-bezier(0.22,1,0.36,1)] sm:inset-x-10 sm:bottom-5 md:inset-x-14 lg:inset-x-20 xl:inset-x-28" aria-label="Book a site visit">
+    <aside className="site-visit-bar fixed inset-x-6 bottom-4 z-[90] mx-auto max-w-[1180px] animate-[enquiry-sheet-in_340ms_cubic-bezier(0.22,1,0.36,1)] sm:inset-x-10 sm:bottom-5 md:inset-x-14 lg:inset-x-16 xl:inset-x-24" aria-label="Book a site visit">
       <div className="lg:rounded-full lg:border lg:border-white/50 lg:bg-[#F8F7F3]/95 lg:shadow-[0_14px_40px_rgba(43,38,35,0.22)] lg:backdrop-blur-xl">
-        <div className="relative flex items-center gap-2 lg:min-h-[54px] lg:px-2.5 lg:py-1.5">
-          <div aria-hidden="true" className="pointer-events-none hidden w-[128px] shrink-0 items-center justify-start gap-2.5 text-left xl:flex">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
+        <div className="relative flex items-center gap-2 lg:min-h-[68px] lg:gap-2.5 lg:px-3 lg:py-2">
+          <div aria-hidden="true" className="pointer-events-none hidden w-[190px] shrink-0 items-center justify-start gap-2.5 text-left xl:flex">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </span>
             <span className="min-w-0">
-              <span className="block text-[10px] font-bold tracking-[0.18em] text-[#2B2623]">SITE VISIT</span>
-              <span className="mt-0.5 block text-[9px] text-[#2B2623]/55">Book Priority Slot</span>
+              <span className="block whitespace-nowrap text-[11px] font-bold tracking-[0.08em] text-[#2B2623]">FIRST 25 BOOKINGS</span>
+              <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium text-[#2B2623]/65">30% now · 70% on possession</span>
             </span>
           </div>
 
@@ -106,10 +106,11 @@ export default function SiteVisitBar() {
               Thank you. Our team will confirm your visit shortly.
             </div>
           ) : (
-            <form onSubmit={submit} noValidate className="site-visit-form hidden min-w-0 flex-1 items-center gap-2 lg:flex">
+            <form onSubmit={submit} className="site-visit-form hidden min-w-0 flex-1 flex-wrap items-center gap-2 lg:flex">
+              {errors.form && <p role="alert" className="order-first w-full text-center text-xs font-medium text-red-700">{errors.form}</p>}
               <Field name="name" placeholder="Name" autoComplete="name" error={errors.name} className={`${inputClassName} w-full`} wrapperClassName="min-w-[90px] flex-1" />
               <Field name="phone" placeholder="98765 43210" type="tel" inputMode="numeric" autoComplete="tel" maxLength={10} pattern="[0-9]{10}" countryCode error={errors.phone} className={`${inputClassName} w-full`} wrapperClassName="min-w-[90px] flex-1" />
-              <label className="relative order-4 w-[135px] min-w-[135px] shrink-0">
+              <label className="relative order-4 w-[150px] min-w-[150px] shrink-0">
                 <span className="sr-only">Your Budget</span>
                 <select
                   name="budget"
@@ -127,7 +128,7 @@ export default function SiteVisitBar() {
                 <SelectChevron compact />
                 {errors.budget && <span className="mt-1 block pl-3 text-[9px] text-red-600 lg:absolute lg:left-3 lg:top-full lg:whitespace-nowrap lg:pl-0">{errors.budget}</span>}
               </label>
-              <div className="relative order-3 w-[140px] min-w-[140px] shrink-0 xl:w-[150px]">
+              <div className="relative order-3 w-[150px] min-w-[150px] shrink-0 xl:w-[160px]">
                 <button
                   type="button"
                   onClick={() => setIsConfigurationOpen((open) => !open)}
@@ -158,10 +159,10 @@ export default function SiteVisitBar() {
                 )}
                 {errors.bhk && <span className="mt-1 block pl-3 text-[9px] text-red-600 lg:absolute lg:left-3 lg:top-full lg:whitespace-nowrap lg:pl-0">{errors.bhk}</span>}
               </div>
-              <Field name="pincode" placeholder="Pincode" inputMode="numeric" autoComplete="postal-code" error={errors.pincode} className={`${inputClassName} w-full`} wrapperClassName="order-5 w-[88px] min-w-[88px] shrink-0" />
+              <Field name="pincode" placeholder="Pincode (optional)" inputMode="numeric" autoComplete="postal-code" error={errors.pincode} required={false} className={`${inputClassName} w-full`} wrapperClassName="order-5 w-[120px] min-w-[120px] shrink-0" />
               <button
                 type="submit"
-                className="group order-6 flex h-12 w-[210px] shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-coral px-5 text-[10px] font-bold tracking-[0.08em] text-white shadow-[0_10px_26px_rgba(232,115,74,0.32)] transition duration-300 hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_14px_30px_rgba(232,115,74,0.38)] focus:outline-none focus:ring-4 focus:ring-coral/20 lg:h-9 lg:w-[148px] lg:px-3 xl:w-[160px]"
+                className="group order-6 flex h-12 w-[210px] shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-coral px-4 text-[11px] font-bold tracking-[0.06em] text-white shadow-[0_10px_26px_rgba(232,115,74,0.32)] transition duration-300 hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_14px_30px_rgba(232,115,74,0.38)] focus:outline-none focus:ring-4 focus:ring-coral/20 lg:w-[168px] xl:w-[180px]"
               >
                 DOWNLOAD BROCHURE
               </button>
@@ -181,7 +182,7 @@ function Field({ error, className, wrapperClassName = "", countryCode = false, .
     <label className={`relative min-w-0 ${wrapperClassName}`}>
       <span className="sr-only">{props.placeholder}</span>
       {countryCode && <span className="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-[10px] font-bold text-[#2B2623]/55">+91</span>}
-      <input {...props} required aria-invalid={Boolean(error)} className={`${className} ${countryCode ? "!pl-12" : ""} ${error ? "border-red-500" : ""}`} />
+      <input {...props} required={props.required ?? true} aria-invalid={Boolean(error)} className={`${className} ${countryCode ? "!pl-12" : ""} ${error ? "border-red-500" : ""}`} />
       {error && <span className="mt-1 block pl-3 text-[9px] leading-none text-red-600 lg:absolute lg:left-3 lg:top-full lg:whitespace-nowrap lg:pl-0">{error}</span>}
     </label>
   );

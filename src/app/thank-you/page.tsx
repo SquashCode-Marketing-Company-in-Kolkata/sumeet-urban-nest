@@ -15,7 +15,7 @@ export default function ThankYouPage() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/65 via-black/75 to-black/85" />
       <div className="mx-auto flex w-full max-w-xl flex-col items-center text-center">
         <Link href="/" aria-label="Sumeet Urban Nest home" className="mb-10 sm:mb-12">
-          <Image src="/sumeet-urban-nest-logo-white.webp" alt="Sumeet Urban Nest" width={1921} height={819} className="h-auto w-[150px] sm:w-[190px]" priority />
+          <Image src="/sumeet-urban-nest-logo-white.webp" alt="Sumeet Urban Nest" width={1921} height={819} sizes="(min-width: 640px) 190px, 150px" className="h-auto w-[150px] sm:w-[190px]" priority />
         </Link>
         <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur-sm">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-8 w-8"><path strokeLinecap="round" strokeLinejoin="round" d="m5 12 4 4L19 6" /></svg>

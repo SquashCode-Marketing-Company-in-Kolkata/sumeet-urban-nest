@@ -269,16 +269,19 @@ export function EnquiryProvider({ children }: { children: ReactNode }) {
                       Location / Pincode
                     </label>
                     <input
-                      required
                       type="text"
                       id="sticky-location"
                       name="locationPincode"
                       autoComplete="postal-code"
-                      placeholder="Location / Pincode"
+                      placeholder="Location / Pincode (optional)"
                       className={fieldClassName}
                     />
                   </div>
 
+                  <label className="order-5 flex items-start gap-2 text-xs leading-5 text-[#514c46]">
+                    <input required type="checkbox" name="contactConsent" className="mt-1 accent-[#E8734A]" />
+                    <span>I agree to be contacted about this project and have read the <a href="/privacy-policy" className="font-semibold text-coral underline">Privacy Policy</a>.</span>
+                  </label>
                   <button
                     type="submit"
                     disabled={isSubmitting}

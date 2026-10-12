@@ -112,7 +112,9 @@ export default function Header() {
               alt="Sumeet Urban Nest"
               width={1921}
               height={819}
-              priority
+              sizes="(min-width: 380px) 115px, 105px"
+              loading="eager"
+              fetchPriority="low"
               className="h-auto w-[105px] min-[380px]:w-[115px] md:hidden"
             />
             <Image
@@ -120,7 +122,9 @@ export default function Header() {
               alt="Sumeet Urban Nest"
               width={1921}
               height={819}
-              priority
+              sizes="(min-width: 1536px) 155px, (min-width: 768px) 130px, 122px"
+              loading="eager"
+              fetchPriority="low"
               className={`hidden h-auto w-[105px] transition-all min-[380px]:w-[115px] sm:w-[122px] md:block md:w-[125px] lg:w-[125px] xl:w-[130px] 2xl:w-[155px] ${!isScrolled ? "drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)]" : ""}`}
             />
           </Link>
@@ -175,7 +179,7 @@ export default function Header() {
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-              className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-colors ${
+              className={`flex h-11 w-11 items-center justify-center rounded-lg border transition-colors ${
                 isScrolled
                   ? "border-gray-200 bg-gray-50 text-gray-800"
                   : "border-white/30 bg-black/30 text-white backdrop-blur-sm max-md:border-gray-200 max-md:bg-gray-50 max-md:text-gray-800"
@@ -206,7 +210,7 @@ export default function Header() {
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.id)}
-                    className={`flex items-center justify-between rounded-lg px-4 py-2.5 text-sm font-medium uppercase transition-colors ${
+                    className={`flex min-h-11 items-center justify-between rounded-lg px-4 py-3 text-sm font-medium uppercase transition-colors ${
                       isActive
                         ? "font-semibold text-coral"
                         : "text-gray-800 hover:bg-gray-50 hover:text-coral"

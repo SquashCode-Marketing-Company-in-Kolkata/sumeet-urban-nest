@@ -127,7 +127,7 @@ export default function DeveloperSection() {
           </div>
 
           <h2 className="w-full text-center whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
-            D E V E L O P E R
+            DEVELOPER
           </h2>
 
           <p className="section-description mx-auto mt-5 max-w-2xl font-light text-[#736c66]">
@@ -148,7 +148,7 @@ export default function DeveloperSection() {
                     width={1268}
                     height={1241}
                     className="h-auto w-36 sm:w-44 lg:w-32 object-contain"
-                    priority
+                    sizes="(min-width: 640px) 176px, 144px"
                   />
                 </div>
 

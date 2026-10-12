@@ -31,7 +31,7 @@ export default function ContactSection() {
     if (!/^[6-9]\d{9}$/.test(phoneNumber.slice(-10))) nextErrors.phoneNumber = "Enter a valid 10-digit mobile number";
     if (!budget) nextErrors.budget = "Please select your budget";
     if (!interest) nextErrors.interest = "Please select a configuration";
-    if (!/^\d{6}$/.test(locationPincode)) nextErrors.locationPincode = "Enter a valid 6-digit pincode";
+    if (locationPincode && !/^\d{6}$/.test(locationPincode)) nextErrors.locationPincode = "Enter a valid 6-digit pincode";
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length === 0) {
@@ -73,7 +73,7 @@ export default function ContactSection() {
           </div>
 
           <h2 className="w-full text-center whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
-            C O N T A C T &nbsp; U S
+            CONTACT US
           </h2>
         </div>
 
@@ -85,9 +85,8 @@ export default function ContactSection() {
               src="/images/exterior/elevation-view-1.webp"
               alt="Sumeet Urban Nest luxury architectural elevation"
               fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
+              sizes="(min-width: 1024px) 50vw, (max-width: 1080px) 100vw, 1080px"
               className="object-cover object-center"
-              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
 
@@ -96,7 +95,7 @@ export default function ContactSection() {
               <div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/40 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md">
                   <span className="h-1.5 w-1.5 rounded-full bg-coral animate-pulse" />
-                  Raipur&apos;s 1st BOHK Enclave
+                  Khamardih, Shankar Nagar&apos;s first BOHK homes
                 </span>
               </div>
 
@@ -129,7 +128,7 @@ export default function ContactSection() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-4.5" noValidate>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-4.5">
               {errors.form && <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{errors.form}</p>}
               {/* Full Name */}
               <div className="order-0 sm:col-span-2">
@@ -226,14 +225,14 @@ export default function ContactSection() {
 
                 <div className="order-4">
                   <label htmlFor="contactPincode" className="sr-only">
-                    Current Pincode <span className="text-coral">*</span>
+                    Current Pincode (optional)
                   </label>
                   <input
                     type="text"
                     id="contactPincode"
                     name="locationPincode"
                     maxLength={6}
-                    placeholder="Current Pincode"
+                    placeholder="Current Pincode (optional)"
                     className={`h-12 w-full rounded-xl border bg-[#F8F7F4] px-4 text-sm text-[#2B2623] outline-none transition placeholder:text-[#2B2623]/40 focus:bg-white focus:ring-2 focus:ring-coral/20 ${
                       errors.locationPincode ? "border-red-400 focus:border-red-500" : "border-[#2B2623]/15 focus:border-coral"
                     }`}
@@ -254,6 +253,10 @@ export default function ContactSection() {
               </div>
 
               {/* Trust Badges */}
+              <label className="order-6 flex items-start gap-2 text-xs leading-5 text-[#514c46] sm:col-span-2">
+                <input required type="checkbox" name="contactConsent" className="mt-1 accent-[#E8734A]" />
+                <span>I agree to be contacted about Sumeet Urban Nest and have read the <a href="/privacy-policy" className="font-semibold text-coral underline">Privacy Policy</a>.</span>
+              </label>
               <div className="order-6 flex flex-wrap items-center justify-center gap-4 pt-2 text-[11px] text-[#747474] sm:col-span-2 sm:gap-6">
                 <span className="flex items-center gap-1.5">
                   <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-coral/15 text-[9px] font-bold text-coral">✓</span>
@@ -265,7 +268,7 @@ export default function ContactSection() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-coral/15 text-[9px] font-bold text-coral">✓</span>
-                  100% Privacy Assured
+                  See our Privacy Policy
                 </span>
               </div>
             </form>

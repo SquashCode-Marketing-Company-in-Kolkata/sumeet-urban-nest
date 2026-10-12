@@ -15,9 +15,19 @@ Local development uses the same names in the gitignored `.env.local` file.
 The application reads these variables only in the server enquiry endpoint;
 no `NEXT_PUBLIC_` prefix is needed.
 
-All four forms save through `/api/enquiry`. A successful database insert is
-required before redirecting to `/thank-you`. If Pabbly is configured, it receives
-the enquiry after the lead is saved; its failure does not reject the saved lead.
+All four forms save through `/api/enquiry`. The endpoint saves the lead to
+Supabase and then posts the same enquiry to Salesforce Web-to-Lead before
+redirecting to `/thank-you`. A Salesforce delivery failure returns an error so
+the visitor can retry with the same submission ID. If Pabbly is configured, it
+receives the enquiry after Salesforce accepts the submission; its failure does
+not reject the saved lead.
+
+Salesforce uses the generated Web-to-Lead org ID and field IDs supplied for this
+site. The visitor's state is not sent because the website does not collect it.
+The Salesforce org must have Web-to-Lead enabled and accept this generated form
+without a CAPTCHA challenge. Confirm one test submission in Salesforce after
+deployment; a Web-to-Lead redirect confirms receipt of the POST, but Salesforce
+validation and duplicate rules can still prevent a Lead record from being created.
 
 Saved data includes name, phone, configuration, budget, location/pincode, form
 source, submission time, current URL, landing URL, original referrer, the six UTM

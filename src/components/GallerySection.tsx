@@ -136,7 +136,7 @@ export default function GallerySection() {
 
   return (
     <>
-      <section id="gallery" className="scroll-mt-20">
+      <section className="scroll-mt-20">
         <LuminaInteractiveList slides={gallerySlides} onOpen={setSelectedIndex} footer={<SectionCta label="Download Brochure" />} />
       </section>
 
@@ -204,8 +204,7 @@ export default function GallerySection() {
                 alt={currentSlide.title}
                 fill
                 className="object-contain"
-                sizes="96vw"
-                priority
+                sizes="(max-width: 1080px) 100vw, 1080px"
               />
             </div>
           </div>
