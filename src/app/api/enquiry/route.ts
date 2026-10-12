@@ -121,7 +121,7 @@ export async function POST(request: Request) {
     }
 
     try {
-      await submitSalesforceLead({ fullName, phoneNumber, configuration, budget });
+      await submitSalesforceLead({ lastName: fullName, phoneNumber, configuration, budget });
     } catch {
       // The same submission ID can retry Salesforce delivery without creating another database row.
       console.error("Salesforce Web-to-Lead delivery failed after the lead was saved.");

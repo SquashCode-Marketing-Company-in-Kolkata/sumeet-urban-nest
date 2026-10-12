@@ -3,17 +3,20 @@ const salesforceEndpoint = `https://webto.salesforce.com/servlet/servlet.WebToLe
 const returnUrl = "https://sumeeturbannest.com/thank-you";
 
 export type SalesforceLead = {
-  fullName: string;
+  lastName: string;
   phoneNumber: string;
   configuration: string;
   budget: string;
 };
 
 export function salesforceLeadBody(lead: SalesforceLead): URLSearchParams {
+  const lastName = lead.lastName.trim();
+  if (!lastName) throw new Error("Salesforce Last Name is required.");
+
   return new URLSearchParams({
     oid: salesforceOrgId,
     retURL: returnUrl,
-    last_name: lead.fullName.slice(0, 80),
+    last_name: lastName.slice(0, 80),
     mobile: `+91${lead.phoneNumber}`,
     "00NT1000005OpwC": lead.configuration.slice(0, 255),
     "00NT1000005OoAU": lead.budget.slice(0, 255),

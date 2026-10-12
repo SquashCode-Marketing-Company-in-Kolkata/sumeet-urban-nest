@@ -5,7 +5,7 @@ const { NextResponse } = require("next/server");
 const { load } = require("./helpers.cjs");
 
 const lead = {
-  fullName: "Test Visitor", phoneNumber: "+919876543210", configuration: "2-bohk",
+  fullName: "Test User October 2026", phoneNumber: "+919876543210", configuration: "2-bohk",
   budget: "2-bohk-55-60", locationPincode: "492004", form: "contact-section",
   pageUrl: "https://example.com/", landingPageUrl: "https://example.com/?utm_source=google",
   referrer: "https://google.com/", utm_source: "google", utm_medium: "cpc",
@@ -73,7 +73,10 @@ test("every form inserts normalized lead and attribution before returning succes
     const salesforce = new URLSearchParams(calls[1].options.body);
     assert.equal(salesforce.get("oid"), "00Df600000JT8RX");
     assert.equal(salesforce.get("retURL"), "https://sumeeturbannest.com/thank-you");
-    assert.equal(salesforce.get("last_name"), "Test Visitor");
+    assert.equal(salesforce.get("last_name"), lead.fullName);
+    assert.equal(salesforce.has("first_name"), false);
+    assert.equal(salesforce.has("fullName"), false);
+    assert.equal(salesforce.has("full_name"), false);
     assert.equal(salesforce.get("mobile"), "+919876543210");
     assert.equal(salesforce.get("00NT1000005OpwC"), "2 BHK");
     assert.equal(salesforce.get("00NT1000005OoAU"), "55L to 60L");
