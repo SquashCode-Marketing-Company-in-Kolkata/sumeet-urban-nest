@@ -16,17 +16,17 @@ export default function OverviewSection() {
         className="pointer-events-none absolute right-0 bottom-0 z-0 h-auto w-[260px] max-w-none translate-y-0 select-none opacity-20 sm:w-[340px] md:w-[420px] lg:right-0 lg:w-[560px] lg:translate-y-[24%] lg:opacity-25 xl:w-[700px]"
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1720px] items-center gap-8 px-6 sm:gap-10 sm:px-10 md:px-14 lg:px-20 xl:-translate-x-3 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] xl:gap-16 xl:px-28 2xl:gap-20 2xl:px-36">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1720px] items-center gap-8 px-6 sm:gap-10 sm:px-10 md:px-14 lg:px-20 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] xl:gap-16 xl:px-28 2xl:gap-20 2xl:px-36">
         <Image
           src="/images/circular-garden-living-diorama.webp"
           alt="Circular garden living at Sumeet Urban Nest"
           width={1832}
           height={858}
           sizes="(min-width: 1024px) 50vw, (max-width: 1080px) 100vw, 1080px"
-          className="h-auto w-full max-w-[850px] justify-self-center mix-blend-multiply [mask-image:radial-gradient(ellipse_at_center,black_58%,transparent_74%)]"
+          className="h-auto w-full max-w-[850px] justify-self-center mix-blend-multiply xl:-ml-[13.5%] xl:w-[115%] xl:max-w-none xl:justify-self-start [mask-image:radial-gradient(ellipse_at_center,black_58%,transparent_74%)]"
         />
 
-        <div className="min-w-0 text-center xl:-translate-x-2 xl:text-left">
+        <div className="min-w-0 text-center xl:-translate-x-12 xl:text-left">
           {/* Top Editorial Eyebrow */}
           <div className="mb-3 flex items-center justify-center gap-2.5 sm:mb-4 sm:gap-3 lg:justify-start">
             <span className="h-px w-6 bg-[#2c2b29]/25 sm:w-12 xl:hidden" />

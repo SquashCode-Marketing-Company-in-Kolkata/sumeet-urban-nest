@@ -71,8 +71,8 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        <button type="button" onClick={() => openEnquiry("Request A Call Back / Reveal Price")} className="w-full max-w-[340px] rounded-full bg-coral px-5 py-3 text-sm font-bold text-white shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:hidden">
-          Request A Call Back / Reveal Price
+        <button type="button" onClick={() => openEnquiry("Reveal Price")} className="w-full max-w-[340px] rounded-full bg-coral px-5 py-3 text-sm font-bold text-white shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:hidden">
+          Reveal Price
         </button>
 
         <button
@@ -81,8 +81,13 @@ export default function HeroSection() {
           aria-label="Enquire about the 30:70 payment plan, first 25 bookings only"
           className="hero-offer group relative hidden w-[300px] shrink-0 cursor-pointer self-start rounded-[22px] border-2 border-dashed border-[#F0A566]/70 bg-[#14100D]/80 px-5 pb-6 pt-6 text-left text-white shadow-[0_24px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-colors duration-200 hover:border-[#F0A566] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F0A566]/60 md:block lg:self-end lg:w-[clamp(270px,22vw,330px)] lg:px-6 lg:pb-7 lg:pt-7"
         >
-          <span className="absolute -top-3.5 left-5 rounded-full bg-coral px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white shadow-[0_8px_20px_rgba(232,115,74,0.45)]">
-            First 25 bookings only
+          <span className="absolute -top-3.5 left-5 flex items-center gap-1.5">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-coral text-white shadow-[0_8px_20px_rgba(232,115,74,0.45)]">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
+            </span>
+            <span className="rounded-full bg-coral px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white shadow-[0_8px_20px_rgba(232,115,74,0.45)]">
+              First 25 bookings only
+            </span>
           </span>
           <span className="absolute bottom-2 right-4 text-[9px] text-white/50">*T&amp;C apply</span>
 
@@ -119,27 +124,33 @@ export default function HeroSection() {
           type="button"
           onClick={() => openEnquiry("Book Your 2 & 3 BHK Apartments")}
           aria-label="Enquire about the 30:70 payment plan, first 25 bookings only"
-          className="group relative flex w-full max-w-[340px] cursor-pointer items-center gap-3 rounded-2xl border border-[#F0A566]/50 bg-[#14100D]/75 p-2.5 pr-3 text-left text-white shadow-[0_16px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors duration-200 active:bg-[#14100D]/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F0A566]/60 md:hidden"
+          className="group relative w-full max-w-[340px] cursor-pointer rounded-2xl border border-dashed border-[#F0A566]/60 bg-[#14100D]/75 px-4 pb-3.5 pt-3 text-left text-white shadow-[0_16px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors duration-200 active:bg-[#14100D]/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F0A566]/60 md:hidden"
         >
-          <span className="flex h-[58px] w-[58px] shrink-0 flex-col items-center justify-center rounded-xl bg-coral leading-none shadow-[0_6px_18px_rgba(232,115,74,0.45)]">
-            <span className="text-[17px] font-bold tracking-[-0.03em]">30:70</span>
-            <span className="mt-1 text-[8px] font-bold uppercase tracking-[0.18em] text-white/85">Plan</span>
+          <span className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.16em] text-[#F0A566]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3 w-3 shrink-0" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
+            First 25 bookings only
+            <span className="ml-auto text-[8px] font-normal normal-case tracking-normal text-white/45">*T&amp;C apply</span>
           </span>
-          <span className="min-w-0 flex-1">
-            <span className="block text-[9px] font-bold uppercase tracking-[0.16em] text-[#F0A566]">
-              First 25 bookings only
+          <span className="mt-2.5 flex items-center gap-2.5 min-[380px]:gap-3">
+            <span className="min-w-0 flex-1">
+              <span className="block text-[26px] font-semibold leading-none tracking-[-0.04em] text-[#F0A566]">30%</span>
+              <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.14em] text-white/80">Pay now</span>
             </span>
-              <span className="mt-1 block text-[12px] font-semibold leading-snug min-[380px]:text-[13px]">
-                Book your 2 &amp; 3 BHK Apartments
+            <span aria-hidden="true" className="h-9 w-px bg-white/20" />
+            <span className="min-w-0 flex-1">
+              <span className="block text-[26px] font-semibold leading-none tracking-[-0.04em] text-white">70%</span>
+              <span className="mt-1 block whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.08em] text-white/80 min-[380px]:tracking-[0.14em]">On possession</span>
+            </span>
+            <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-coral text-lg text-white shadow-[0_6px_18px_rgba(232,115,74,0.45)] transition-transform duration-200 group-active:translate-x-0.5">
+              &rarr;
             </span>
           </span>
-          <span className="absolute right-3 top-2.5 text-[8px] text-white/45">*T&amp;C</span>
         </button>
       </div>
 
       {/* Slide indicators */}
       <div
-        className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-3 sm:bottom-7 sm:gap-4"
+        className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center sm:bottom-7"
         aria-label={`Hero slide ${activeSlide + 1} of ${heroSlides.length}`}
       >
         {heroSlides.map((slide, index) => (
@@ -149,8 +160,8 @@ export default function HeroSection() {
             onClick={() => setActiveSlide(index)}
             aria-label={`Show hero slide ${index + 1}`}
             aria-current={index === activeSlide ? "true" : undefined}
-            className="flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          ><span className={`h-2.5 w-2.5 rounded-full border-2 border-[#F0A566] transition-all sm:h-3 sm:w-3 ${index === activeSlide ? "scale-110 bg-[#F0A566]" : "bg-transparent"}`} /></button>
+            className="flex h-8 w-6 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          ><span className={`h-1.5 w-1.5 rounded-full border border-[#F0A566] transition-all sm:h-2 sm:w-2 ${index === activeSlide ? "scale-110 bg-[#F0A566]" : "bg-transparent"}`} /></button>
         ))}
       </div>
     </section>

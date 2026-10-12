@@ -80,16 +80,16 @@ export default function SiteVisitBar() {
         <div className="relative flex items-center gap-2 lg:min-h-[68px] lg:gap-2.5 lg:px-3 lg:py-2">
           <div aria-hidden="true" className="pointer-events-none hidden w-[230px] shrink-0 items-center justify-start gap-2.5 text-left xl:flex">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
             </span>
             <span className="min-w-0">
               <span className="block whitespace-nowrap text-[11px] font-bold tracking-[0.08em] text-[#2B2623]">FIRST 25 BOOKINGS</span>
-              <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium text-[#2B2623]/65">30% now · 70% on possession</span>
+              <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium text-[#2B2623]/65">70% on possession · 30% now</span>
             </span>
           </div>
 
-          <div className="relative min-w-0 flex-1 lg:hidden">
-            <button type="button" onClick={() => openEnquiry("Download Brochure")} className="flex h-10 w-full items-center justify-center rounded-full bg-coral px-4 text-[10px] font-bold tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(232,115,74,0.38)] transition active:scale-[0.98]">DOWNLOAD BROCHURE</button>
+          <div className="relative mx-auto lg:hidden">
+            <button type="button" onClick={() => openEnquiry("Download Brochure")} className="flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-coral px-5 text-[10px] font-bold tracking-[0.1em] text-white shadow-[0_8px_20px_rgba(232,115,74,0.38)] transition active:scale-[0.98]">DOWNLOAD BROCHURE</button>
             <button
               type="button"
               onClick={() => setIsDismissed(true)}

@@ -7,6 +7,7 @@ import { useState, type FormEvent } from "react";
 
 import { getLeadTracking, redirectToThankYou } from "@/lib/leadTracking";
 import SelectChevron from "@/components/SelectChevron";
+import PaymentOffer from "@/components/PaymentOffer";
 
 type Errors = Partial<Record<"fullName" | "phoneNumber" | "budget" | "interest" | "locationPincode" | "form", string>>;
 
@@ -126,6 +127,7 @@ export default function ContactSection() {
               <p className="section-description mt-2 text-[#747474]">
                 Register below to schedule your private site walkthrough and receive the complete architectural brochure &amp; floor plans.
               </p>
+              <PaymentOffer className="mt-5" />
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-4.5">
