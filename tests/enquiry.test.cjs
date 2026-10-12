@@ -14,7 +14,7 @@ const lead = {
   submissionId: "11111111-1111-4111-8111-111111111111",
 };
 
-function setup({ env = {}, databaseOk = true, webhookFails = false, salesforceFails = false, salesforceRedirect = "https://sumeeturbannest.com/thank-you" } = {}) {
+function setup({ env = {}, databaseOk = true, webhookFails = false, salesforceFails = false, salesforceHtml = false, salesforceRedirect = "https://sumeeturbannest.com/thank-you" } = {}) {
   const calls = [];
   const savedIds = new Set();
   const handler = load("src/app/api/enquiry/route.ts", {
@@ -23,6 +23,10 @@ function setup({ env = {}, databaseOk = true, webhookFails = false, salesforceFa
     fetch: async (url, options) => {
       calls.push({ url, options });
       if (String(url).startsWith("https://webto.salesforce.com/")) {
+        if (salesforceHtml) return new Response(
+          salesforceFails ? "Salesforce error" : '<meta HTTP-EQUIV="Refresh" content="0; URL=https://sumeeturbannest.com/thank-you">',
+          { status: 200, headers: { "Content-Type": "text/html;charset=UTF-8" } },
+        );
         return new Response(null, { status: salesforceFails ? 503 : 302, headers: { location: salesforceRedirect } });
       }
       if (url === "https://webhook.example.com") {
@@ -93,6 +97,26 @@ test("saved lead succeeds even if optional Pabbly notification fails", async () 
   assert.equal((await POST(request(lead))).status, 200);
   assert.equal(calls.length, 3);
   assert.equal(calls[2].url, "https://webhook.example.com");
+});
+
+test("Salesforce's 200 HTML thank-you redirect completes all three deliveries", async () => {
+  const { calls, POST } = setup({ salesforceHtml: true, env: { PABBLY_WEBHOOK_URL: "https://webhook.example.com" } });
+  assert.equal((await POST(request(lead))).status, 200);
+  assert.equal(calls.length, 3);
+  assert.equal(calls[0].url, "https://project.supabase.co/rest/v1/rpc/save_sumeeturbannest_lead");
+  assert.match(String(calls[1].url), /^https:\/\/webto\.salesforce\.com\//);
+  assert.equal(calls[2].url, "https://webhook.example.com");
+  const notification = JSON.parse(calls[2].options.body);
+  assert.equal(notification.fullName, lead.fullName);
+  assert.equal(notification.phoneNumber, "9876543210");
+  assert.equal(notification.configuration, "2 BHK");
+  assert.equal(notification.budget, "55L to 60L");
+});
+
+test("Salesforce HTML without the thank-you redirect is rejected", async () => {
+  const { calls, POST } = setup({ salesforceHtml: true, salesforceFails: true });
+  assert.equal((await POST(request(lead))).status, 502);
+  assert.equal(calls.length, 2);
 });
 
 test("Salesforce failure rejects the form and retries delivery with the same saved lead", async () => {

@@ -18,11 +18,11 @@ export default function LocationSection() {
     <section id="location" className="scroll-mt-20 bg-[#fff8f0] py-16 sm:py-20 md:py-24">
       <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 md:px-14 lg:px-20 xl:-translate-x-3 xl:px-28 2xl:px-36">
         <div className="grid w-full overflow-hidden rounded-[28px] bg-white shadow-[0_24px_70px_rgba(71,49,38,0.1)] xl:grid-cols-2 xl:rounded-[36px]">
-          <div className="relative min-h-[380px] w-full overflow-hidden bg-[#e9e8e4] sm:min-h-[500px] xl:min-h-[720px]">
+          <div className="relative order-2 min-h-[380px] w-full overflow-hidden bg-[#e9e8e4] sm:min-h-[500px] xl:order-1 xl:min-h-[720px]">
           <DeferredMap src={googleMapUrl} />
         </div>
 
-        <div className="flex flex-col items-center justify-center px-6 py-10 text-center sm:px-10 sm:py-12 lg:px-8 lg:py-12 xl:items-start xl:px-12 xl:text-left">
+        <div className="order-1 flex flex-col items-center justify-center px-6 py-10 text-center sm:px-10 sm:py-12 lg:px-8 lg:py-12 xl:order-2 xl:items-start xl:px-12 xl:text-left">
           <div className="flex w-full flex-col items-center gap-4 sm:gap-5 xl:items-start">
           {/* Top Editorial Eyebrow */}
           <div className="flex items-center justify-center gap-3 xl:justify-start">

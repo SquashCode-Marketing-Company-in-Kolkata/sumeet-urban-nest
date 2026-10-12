@@ -31,13 +31,21 @@ export async function submitSalesforceLead(lead: SalesforceLead): Promise<void> 
     signal: AbortSignal.timeout(8000),
   });
 
-  // The generated form's return URL is the only success signal Web-to-Lead provides.
-  // Do not follow the redirect from the server or treat an HTML error page as success.
+  // Salesforce can return either an HTTP redirect or a 200 HTML meta refresh.
   const location = response.headers.get("location");
   const target = location ? new URL(location, salesforceEndpoint) : null;
   const expected = new URL(returnUrl);
   const redirectedToThankYou = target !== null && target.origin === expected.origin && target.pathname === expected.pathname;
-  if (response.status < 300 || response.status >= 400 || !redirectedToThankYou) {
-    throw new Error(`Salesforce Web-to-Lead did not redirect to the thank-you page (${response.status})`);
+  if (response.status >= 300 && response.status < 400 && redirectedToThankYou) return;
+
+  if (response.status === 200 && response.headers.get("content-type")?.includes("text/html")) {
+    const html = await response.text();
+    const hasThankYouMetaRefresh = (html.match(/<meta\b[^>]*>/gi) ?? []).some((tag) =>
+      /http-equiv\s*=\s*["']?refresh["']?/i.test(tag) &&
+      /content\s*=\s*["']0;\s*url=https:\/\/sumeeturbannest\.com\/thank-you["']/i.test(tag),
+    );
+    if (hasThankYouMetaRefresh) return;
   }
+
+  throw new Error(`Salesforce Web-to-Lead did not confirm the thank-you page (${response.status})`);
 }
