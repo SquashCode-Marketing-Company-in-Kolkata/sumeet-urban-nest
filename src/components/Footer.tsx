@@ -63,15 +63,14 @@ export default function Footer() {
               rera.cgstate.gov.in
             </a>
           </p>
-          <p className="mt-3 text-xs text-[#625a52] md:text-sm">
+          <p className="mt-3 text-[10px] leading-relaxed text-[#625a52]">
+            <a href="https://squashcode.com/" className="transition-colors hover:text-coral">
+              Developed and Designed by SquashCode
+            </a>
+            <span className="mx-2 text-[#c7c0b7]" aria-hidden="true">|</span>
             &copy; 2026 Sumeet Infracon Pvt. Ltd. All renderings are indicative and subject to change.
           </p>
           <p className="mt-3 text-xs"><Link href="/privacy-policy" className="text-[#777169] underline transition-colors hover:text-coral">Privacy Policy</Link></p>
-          <p className="mt-3 text-[10px] leading-relaxed text-[#625a52]">
-            <a href="https://squashcode.com/" className="transition-colors hover:text-coral">
-              Developed and maintained by SquashCode
-            </a>
-          </p>
         </div>
       </div>
     </footer>

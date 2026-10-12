@@ -59,7 +59,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-20 bg-[#F7F5F0] pt-16 pb-10 sm:pt-20 sm:pb-12 md:pt-24 md:pb-14 lg:pt-28 lg:pb-16"
+      className="scroll-mt-20 bg-[#F7F5F0] pt-0 pb-10 sm:pt-1 sm:pb-12 md:pt-2 md:pb-14 lg:pt-3 lg:pb-16"
     >
       <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 2xl:px-36">
         {/* Section Header */}
@@ -93,9 +93,9 @@ export default function ContactSection() {
             {/* Architectural overlay caption */}
             <div className="relative z-10 flex h-full flex-col justify-between p-7 sm:p-9 lg:p-12">
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/40 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-coral animate-pulse" />
-                  Khamardih, Shankar Nagar&apos;s first BOHK homes
+                <span className="inline-flex max-w-full items-start gap-2 rounded-full border border-white/25 bg-black/40 px-3 py-2 text-[9px] font-bold uppercase leading-snug tracking-[0.12em] text-white backdrop-blur-md sm:items-center sm:px-3.5 sm:py-1 sm:text-[10px] sm:tracking-[0.2em]">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral animate-pulse sm:mt-0" />
+                  <span className="min-w-0">Khamardih, Shankar Nagar&apos;s first BOHK homes</span>
                 </span>
               </div>
 

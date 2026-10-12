@@ -47,7 +47,7 @@ export default function LayoutSection() {
             >
               <div className="pointer-events-none absolute -bottom-10 -right-10 h-32 w-32 rounded-full border-[18px] border-coral/5 transition-transform duration-500 group-hover:scale-110" />
               <div className="relative flex items-start justify-between gap-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-coral">
+                <p className="text-[13px] font-bold uppercase tracking-[0.22em] text-coral sm:text-[11px] sm:tracking-[0.3em]">
                   {block.name}
                 </p>
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#fff2ea] text-xs font-semibold text-coral">
@@ -56,7 +56,7 @@ export default function LayoutSection() {
               </div>
               <div className="relative mt-11 border-b border-[#eee5df] pb-6">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a817b]">Residences per floor</p>
-                <h3 className="mt-3 text-3xl font-light leading-tight tracking-[-0.035em] text-[#292929] sm:text-[34px]">
+                <h3 className="mt-3 text-2xl font-light leading-tight tracking-[-0.035em] text-[#292929] sm:text-[34px]">
                 {block.units}
                 </h3>
               </div>

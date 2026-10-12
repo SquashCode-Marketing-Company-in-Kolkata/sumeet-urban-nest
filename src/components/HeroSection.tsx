@@ -67,7 +67,7 @@ export default function HeroSection() {
         <h1 className="min-w-0 text-[clamp(1.125rem,5.9vw,2.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] md:text-[clamp(2.5rem,min(4.6vw,9svh),4.75rem)] lg:text-[clamp(2.125rem,min(3.4vw,9svh),4.75rem)] xl:text-[clamp(2.5rem,min(4.1vw,9svh),4.75rem)]">
           <span className="block whitespace-nowrap font-normal">Khamardih, Shankar Nagar&apos;s</span>
           <span className="block whitespace-nowrap">
-            first <span className="font-semibold text-coral">BOHK homes</span> !
+            First <span className="font-semibold text-coral">BOHK Homes</span>!
           </span>
         </h1>
 
@@ -77,7 +77,7 @@ export default function HeroSection() {
 
         <button
           type="button"
-          onClick={() => openEnquiry("Book Your 2 & 3 BHK Home")}
+          onClick={() => openEnquiry("Book Your 2 & 3 BHK Apartments")}
           aria-label="Enquire about the 30:70 payment plan, first 25 bookings only"
           className="hero-offer group relative hidden w-[300px] shrink-0 cursor-pointer self-start rounded-[22px] border-2 border-dashed border-[#F0A566]/70 bg-[#14100D]/80 px-5 pb-6 pt-6 text-left text-white shadow-[0_24px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-colors duration-200 hover:border-[#F0A566] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F0A566]/60 md:block lg:self-end lg:w-[clamp(270px,22vw,330px)] lg:px-6 lg:pb-7 lg:pt-7"
         >
@@ -107,7 +107,7 @@ export default function HeroSection() {
           </span>
 
           <span className="mt-4 block whitespace-nowrap border-t border-white/15 pt-3 text-[13px] font-semibold text-white">
-            Book your 2 &amp; 3 BHK homes
+            Book your 2 &amp; 3 BHK Apartments
             <span aria-hidden="true" className="ml-1.5 inline-block transition-transform duration-200 group-hover:translate-x-1">
               &rarr;
             </span>
@@ -117,7 +117,7 @@ export default function HeroSection() {
         {/* Compact offer ticket for phones */}
         <button
           type="button"
-          onClick={() => openEnquiry("Book Your 2 & 3 BHK Home")}
+          onClick={() => openEnquiry("Book Your 2 & 3 BHK Apartments")}
           aria-label="Enquire about the 30:70 payment plan, first 25 bookings only"
           className="group relative flex w-full max-w-[340px] cursor-pointer items-center gap-3 rounded-2xl border border-[#F0A566]/50 bg-[#14100D]/75 p-2.5 pr-3 text-left text-white shadow-[0_16px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors duration-200 active:bg-[#14100D]/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F0A566]/60 md:hidden"
         >
@@ -129,11 +129,8 @@ export default function HeroSection() {
             <span className="block text-[9px] font-bold uppercase tracking-[0.16em] text-[#F0A566]">
               First 25 bookings only
             </span>
-            <span className="mt-1 block whitespace-nowrap text-[12px] font-semibold leading-snug min-[380px]:text-[13px]">
-              30% now &middot; 70% on possession
-            </span>
-            <span className="mt-0.5 block text-[11px] text-white/70">
-              Book your 2 &amp; 3 BHK homes &rarr;
+              <span className="mt-1 block text-[12px] font-semibold leading-snug min-[380px]:text-[13px]">
+                Book your 2 &amp; 3 BHK Apartments
             </span>
           </span>
           <span className="absolute right-3 top-2.5 text-[8px] text-white/45">*T&amp;C</span>

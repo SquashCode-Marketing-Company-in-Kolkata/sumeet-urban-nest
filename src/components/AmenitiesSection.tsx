@@ -271,9 +271,8 @@ export default function AmenitiesSection() {
           </h2>
 
           <p className="section-description mx-auto mt-4 sm:mt-6 max-w-[680px] text-[#6d625c]">
-            From the courtyard to the podium greens up to rooftop skies, every
-            space at Sumeet Urban Nest is designed to extend your day beyond the
-            indoors.
+            From courtyard greens to open skies above, every space at Sumeet
+            Urban Nest invites you to take your day outdoors.
           </p>
         </div>
 

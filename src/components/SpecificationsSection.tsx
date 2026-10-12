@@ -119,8 +119,9 @@ export default function SpecificationsSection() {
               SPECIFICATIONS
             </h2>
           </div>
-          <div className="absolute bottom-0 left-0 hidden items-center gap-3 md:flex">{arrowControls}</div>
         </div>
+
+        <div className="mb-4 hidden justify-end gap-3 md:flex">{arrowControls}</div>
 
         <div
           ref={stripRef}

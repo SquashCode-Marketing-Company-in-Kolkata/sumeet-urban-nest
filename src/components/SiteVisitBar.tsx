@@ -75,10 +75,10 @@ export default function SiteVisitBar() {
   if (!isVisible || isDismissed) return null;
 
   return (
-    <aside className="site-visit-bar fixed inset-x-6 bottom-4 z-[90] mx-auto max-w-[1180px] animate-[enquiry-sheet-in_340ms_cubic-bezier(0.22,1,0.36,1)] sm:inset-x-10 sm:bottom-5 md:inset-x-14 lg:inset-x-16 xl:inset-x-24" aria-label="Book a site visit">
+    <aside className="site-visit-bar fixed inset-x-6 bottom-4 z-[90] mx-auto max-w-[1360px] animate-[enquiry-sheet-in_340ms_cubic-bezier(0.22,1,0.36,1)] sm:inset-x-10 sm:bottom-5 md:inset-x-14 lg:inset-x-16 xl:inset-x-16" aria-label="Book a site visit">
       <div className="lg:rounded-full lg:border lg:border-white/50 lg:bg-[#F8F7F3]/95 lg:shadow-[0_14px_40px_rgba(43,38,35,0.22)] lg:backdrop-blur-xl">
         <div className="relative flex items-center gap-2 lg:min-h-[68px] lg:gap-2.5 lg:px-3 lg:py-2">
-          <div aria-hidden="true" className="pointer-events-none hidden w-[190px] shrink-0 items-center justify-start gap-2.5 text-left xl:flex">
+          <div aria-hidden="true" className="pointer-events-none hidden w-[230px] shrink-0 items-center justify-start gap-2.5 text-left xl:flex">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </span>
@@ -108,8 +108,8 @@ export default function SiteVisitBar() {
           ) : (
             <form onSubmit={submit} className="site-visit-form hidden min-w-0 flex-1 flex-wrap items-center gap-2 lg:flex">
               {errors.form && <p role="alert" className="order-first w-full text-center text-xs font-medium text-red-700">{errors.form}</p>}
-              <Field name="name" placeholder="Name" autoComplete="name" error={errors.name} className={`${inputClassName} w-full`} wrapperClassName="min-w-[90px] flex-1" />
-              <Field name="phone" placeholder="98765 43210" type="tel" inputMode="numeric" autoComplete="tel" maxLength={10} pattern="[0-9]{10}" countryCode error={errors.phone} className={`${inputClassName} w-full`} wrapperClassName="min-w-[90px] flex-1" />
+              <Field name="name" placeholder="Name" autoComplete="name" error={errors.name} className={`${inputClassName} w-full`} wrapperClassName="min-w-[120px] flex-1" />
+              <Field name="phone" placeholder="98765 43210" type="tel" inputMode="numeric" autoComplete="tel" maxLength={10} pattern="[0-9]{10}" countryCode error={errors.phone} className={`${inputClassName} w-full`} wrapperClassName="min-w-[120px] flex-1" />
               <label className="relative order-4 w-[150px] min-w-[150px] shrink-0">
                 <span className="sr-only">Your Budget</span>
                 <select
