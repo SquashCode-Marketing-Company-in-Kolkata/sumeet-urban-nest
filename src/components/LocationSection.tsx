@@ -1,5 +1,7 @@
+import DeferredMap from "@/components/DeferredMap";
+
 const googleMapUrl =
-  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d708.0936506810683!2d81.6740626!3d21.2556491!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd7d5b577cbb%3A0xc053073222c4a135!2sSumeet%20Urban%20Nest!5e0!3m2!1sen!2sin!4v1791615200475!5m2!1sen!2sin";
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3485.1484369458829!2d81.6740626!3d21.2556491!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd7d5b577cbb%3A0xc053073222c4a135!2sSumeet%20Urban%20Nest!5e0!3m2!1sen!2sin!4v1791615200475!5m2!1sen!2sin";
 
 const distances = [
   { place: "Expressway", distance: "1.8 km" },
@@ -14,35 +16,27 @@ const distances = [
 export default function LocationSection() {
   return (
     <section id="location" className="scroll-mt-20 bg-[#fff8f0] py-16 sm:py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 2xl:px-36">
-        <div className="grid w-full overflow-hidden rounded-[28px] bg-white shadow-[0_24px_70px_rgba(71,49,38,0.1)] lg:grid-cols-2 lg:rounded-[36px]">
-          <div className="relative min-h-[380px] w-full overflow-hidden bg-[#e9e8e4] sm:min-h-[500px] lg:min-h-[720px]">
-          <iframe
-            src={googleMapUrl}
-            title="Sumeet Urban Nest location on Google Maps"
-            className="absolute inset-0 h-full w-full border-0"
-            style={{ colorScheme: "light" }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
+      <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 md:px-14 lg:px-20 xl:-translate-x-3 xl:px-28 2xl:px-36">
+        <div className="grid w-full overflow-hidden rounded-[28px] bg-white shadow-[0_24px_70px_rgba(71,49,38,0.1)] xl:grid-cols-2 xl:rounded-[36px]">
+          <div className="relative min-h-[380px] w-full overflow-hidden bg-[#e9e8e4] sm:min-h-[500px] xl:min-h-[720px]">
+          <DeferredMap src={googleMapUrl} />
         </div>
 
-        <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-8 lg:py-12 xl:px-12">
-          <div className="flex flex-col gap-4 sm:gap-5">
+        <div className="flex flex-col items-center justify-center px-6 py-10 text-center sm:px-10 sm:py-12 lg:px-8 lg:py-12 xl:items-start xl:px-12 xl:text-left">
+          <div className="flex w-full flex-col items-center gap-4 sm:gap-5 xl:items-start">
           {/* Top Editorial Eyebrow */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center gap-3 xl:justify-start">
             <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
             <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-              Strategic Connectivity · 05
+              Strategic Connectivity · 07
             </span>
           </div>
 
-          <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.18em] sm:tracking-[0.24em] text-coral uppercase">
-            L O C A T I O N
+          <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
+            LOCATION
           </h2>
 
-          <p className="section-description max-w-2xl text-[#747474]">
+          <p className="section-description mx-auto max-w-2xl text-[#747474] xl:mx-0">
             Sumeet Urban Nest is set in a location that keeps the city close
             without letting it close in on you. From healthcare and shopping
             to business hubs and daily commute points, everything stays
@@ -50,8 +44,8 @@ export default function LocationSection() {
           </p>
           </div>
 
-          <div className="mt-8 border-t border-[#eadfd8] pt-6">
-            <h3 className="mb-4 text-lg font-semibold text-[#2d2d2d] md:text-xl">
+          <div className="mt-8 w-full max-w-2xl border-t border-[#eadfd8] pt-6">
+            <h3 className="mb-4 text-center text-lg font-semibold text-[#2d2d2d] md:text-xl xl:text-left">
               Distance
             </h3>
 

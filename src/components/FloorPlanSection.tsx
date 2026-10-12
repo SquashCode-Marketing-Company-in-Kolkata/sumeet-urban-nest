@@ -31,7 +31,7 @@ export default function FloorPlanSection() {
               <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
             </div>
             <h2 className="text-[13px] font-light tracking-[0.14em] text-coral uppercase min-[380px]:text-[15px] min-[380px]:tracking-[0.18em] sm:text-2xl sm:tracking-[0.28em] md:text-3xl lg:text-4xl">
-              F L O O R &nbsp; P L A N S
+              FLOOR PLANS
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#6d625c] sm:text-base">
               Explore the detailed floor-plan brochure for Sumeet Urban Nest.

@@ -7,6 +7,14 @@
   "vars": {
     "SUPABASE_URL": "https://emzrahoqkuimiaxsqpnm.supabase.co"
   },
+  "previews": {
+    "vars": {
+      "SUPABASE_URL": "https://emzrahoqkuimiaxsqpnm.supabase.co"
+    },
+    "images": {
+      "binding": "IMAGES"
+    }
+  },
   "observability": {
     "enabled": true
   },

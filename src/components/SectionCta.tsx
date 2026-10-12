@@ -21,6 +21,7 @@ export default function SectionCta({ label = "Enquire Now" }: SectionCtaProps) {
   return (
     <EnquiryButton
       ariaLabel={label}
+      ctaLabel={label}
       className={buttonClassName}
     >
       {content}

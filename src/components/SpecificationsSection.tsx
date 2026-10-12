@@ -87,6 +87,17 @@ export default function SpecificationsSection() {
     setIsAutoPlaying(false); // Stop auto-play permanently so user can read at their own pace
   };
 
+  const arrowControls = (
+    <>
+      <button type="button" aria-label="Previous specification" onClick={() => handleTabClick((activeIndex - 1 + specifications.length) % specifications.length)} className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d9d0ca] bg-white text-[#2b2623] transition hover:border-coral hover:bg-coral hover:text-white">
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="m14 6-6 6 6 6" /></svg>
+      </button>
+      <button type="button" aria-label="Next specification" onClick={() => handleTabClick((activeIndex + 1) % specifications.length)} className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d9d0ca] bg-white text-[#2b2623] transition hover:border-coral hover:bg-coral hover:text-white">
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="m10 6 6 6-6 6" /></svg>
+      </button>
+    </>
+  );
+
   return (
     <section
       id="specifications"
@@ -94,19 +105,23 @@ export default function SpecificationsSection() {
     >
       <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 2xl:px-36">
         {/* Section Header */}
-        <div className="mx-auto mb-10 max-w-[800px] text-center sm:mb-14">
-          <div className="mb-3 flex items-center justify-center gap-3 sm:mb-4">
-            <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
-            <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-              Craftsmanship &amp; Finish · 06
-            </span>
-            <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
-          </div>
+        <div className="relative mb-10 sm:mb-14">
+          <div className="mx-auto max-w-[800px] text-center">
+            <div className="mb-3 flex items-center justify-center gap-3 sm:mb-4">
+              <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
+              <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
+                Craftsmanship &amp; Finish · 06
+              </span>
+              <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
+            </div>
 
-          <h2 className="whitespace-nowrap text-[14px] min-[380px]:text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light tracking-[0.16em] min-[380px]:tracking-[0.2em] sm:tracking-[0.25em] text-coral uppercase">
-            SPECIFICATIONS
-          </h2>
+            <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
+              SPECIFICATIONS
+            </h2>
+          </div>
         </div>
+
+        <div className="mb-4 hidden justify-end gap-3 md:flex">{arrowControls}</div>
 
         <div
           ref={stripRef}
@@ -121,13 +136,13 @@ export default function SpecificationsSection() {
                 type="button"
                 onClick={() => handleTabClick(index)}
                 aria-pressed={index === activeIndex}
-                className={`relative min-w-[150px] px-6 py-5 text-left text-sm font-semibold uppercase tracking-[0.12em] transition-colors sm:min-w-[190px] sm:text-base ${
+                className={`relative min-w-[150px] px-4 py-5 text-left text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors min-[380px]:text-xs sm:min-w-[190px] sm:px-6 sm:text-base sm:tracking-[0.12em] ${
                   index === activeIndex
                     ? "bg-[#2b2623] text-white"
                     : "text-[#625a55] hover:bg-white hover:text-coral"
                 }`}
               >
-                <span className="mr-3 text-[10px] text-coral">{String(index + 1).padStart(2, "0")}</span>
+                <span className="mr-2 text-[9px] text-coral sm:mr-3 sm:text-[10px]">{String(index + 1).padStart(2, "0")}</span>
                 {item.title}
                 {index === activeIndex && (
                   <span
@@ -183,14 +198,7 @@ export default function SpecificationsSection() {
             </ul>
           </div>
         </div>
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <button type="button" aria-label="Previous specification" onClick={() => handleTabClick((activeIndex - 1 + specifications.length) % specifications.length)} className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d9d0ca] bg-white text-[#2b2623] transition hover:border-coral hover:bg-coral hover:text-white">
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="m14 6-6 6 6 6" /></svg>
-          </button>
-          <button type="button" aria-label="Next specification" onClick={() => handleTabClick((activeIndex + 1) % specifications.length)} className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d9d0ca] bg-white text-[#2b2623] transition hover:border-coral hover:bg-coral hover:text-white">
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="m10 6 6 6-6 6" /></svg>
-          </button>
-        </div>
+        <div className="mt-6 flex items-center justify-center gap-3 md:hidden">{arrowControls}</div>
       </div>
     </section>
   );

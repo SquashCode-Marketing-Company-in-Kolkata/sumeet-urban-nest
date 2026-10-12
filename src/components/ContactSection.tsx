@@ -7,6 +7,7 @@ import { useState, type FormEvent } from "react";
 
 import { getLeadTracking, redirectToThankYou } from "@/lib/leadTracking";
 import SelectChevron from "@/components/SelectChevron";
+import PaymentOffer from "@/components/PaymentOffer";
 
 type Errors = Partial<Record<"fullName" | "phoneNumber" | "budget" | "interest" | "locationPincode" | "form", string>>;
 
@@ -31,7 +32,7 @@ export default function ContactSection() {
     if (!/^[6-9]\d{9}$/.test(phoneNumber.slice(-10))) nextErrors.phoneNumber = "Enter a valid 10-digit mobile number";
     if (!budget) nextErrors.budget = "Please select your budget";
     if (!interest) nextErrors.interest = "Please select a configuration";
-    if (!/^\d{6}$/.test(locationPincode)) nextErrors.locationPincode = "Enter a valid 6-digit pincode";
+    if (locationPincode && !/^\d{6}$/.test(locationPincode)) nextErrors.locationPincode = "Enter a valid 6-digit pincode";
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length === 0) {
@@ -59,7 +60,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-20 bg-[#F7F5F0] pt-16 pb-10 sm:pt-20 sm:pb-12 md:pt-24 md:pb-14 lg:pt-28 lg:pb-16"
+      className="scroll-mt-20 bg-[#F7F5F0] pt-0 pb-10 sm:pt-1 sm:pb-12 md:pt-2 md:pb-14 lg:pt-3 lg:pb-16"
     >
       <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 2xl:px-36">
         {/* Section Header */}
@@ -72,8 +73,8 @@ export default function ContactSection() {
             <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
           </div>
 
-          <h2 className="w-full text-center whitespace-nowrap text-[12px] min-[380px]:text-[14px] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-[0.12em] min-[380px]:tracking-[0.16em] sm:tracking-[0.22em] text-coral uppercase pl-[0.12em]">
-            C O N N E C T &nbsp; W I T H &nbsp; U S
+          <h2 className="w-full text-center whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
+            CONTACT US
           </h2>
         </div>
 
@@ -85,18 +86,17 @@ export default function ContactSection() {
               src="/images/exterior/elevation-view-1.webp"
               alt="Sumeet Urban Nest luxury architectural elevation"
               fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
+              sizes="(min-width: 1024px) 50vw, (max-width: 1080px) 100vw, 1080px"
               className="object-cover object-center"
-              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
 
             {/* Architectural overlay caption */}
             <div className="relative z-10 flex h-full flex-col justify-between p-7 sm:p-9 lg:p-12">
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/40 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-coral animate-pulse" />
-                  Raipur&apos;s 1st BOHK Enclave
+                <span className="inline-flex max-w-full items-start gap-2 rounded-full border border-white/25 bg-black/40 px-3 py-2 text-[9px] font-bold uppercase leading-snug tracking-[0.12em] text-white backdrop-blur-md sm:items-center sm:px-3.5 sm:py-1 sm:text-[10px] sm:tracking-[0.2em]">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral animate-pulse sm:mt-0" />
+                  <span className="min-w-0">Khamardih, Shankar Nagar&apos;s first BOHK homes</span>
                 </span>
               </div>
 
@@ -127,9 +127,10 @@ export default function ContactSection() {
               <p className="section-description mt-2 text-[#747474]">
                 Register below to schedule your private site walkthrough and receive the complete architectural brochure &amp; floor plans.
               </p>
+              <PaymentOffer className="mt-5" />
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-4.5" noValidate>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-4.5">
               {errors.form && <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{errors.form}</p>}
               {/* Full Name */}
               <div className="order-0 sm:col-span-2">
@@ -226,14 +227,14 @@ export default function ContactSection() {
 
                 <div className="order-4">
                   <label htmlFor="contactPincode" className="sr-only">
-                    Current Pincode <span className="text-coral">*</span>
+                    Current Pincode (optional)
                   </label>
                   <input
                     type="text"
                     id="contactPincode"
                     name="locationPincode"
                     maxLength={6}
-                    placeholder="Current Pincode"
+                    placeholder="Current Pincode (optional)"
                     className={`h-12 w-full rounded-xl border bg-[#F8F7F4] px-4 text-sm text-[#2B2623] outline-none transition placeholder:text-[#2B2623]/40 focus:bg-white focus:ring-2 focus:ring-coral/20 ${
                       errors.locationPincode ? "border-red-400 focus:border-red-500" : "border-[#2B2623]/15 focus:border-coral"
                     }`}
@@ -254,6 +255,10 @@ export default function ContactSection() {
               </div>
 
               {/* Trust Badges */}
+              <label className="order-6 flex items-start gap-2 text-xs leading-5 text-[#514c46] sm:col-span-2">
+                <input required type="checkbox" name="contactConsent" className="mt-1 accent-[#E8734A]" />
+                <span>I agree to be contacted about Sumeet Urban Nest and have read the <a href="/privacy-policy" className="font-semibold text-coral underline">Privacy Policy</a>.</span>
+              </label>
               <div className="order-6 flex flex-wrap items-center justify-center gap-4 pt-2 text-[11px] text-[#747474] sm:col-span-2 sm:gap-6">
                 <span className="flex items-center gap-1.5">
                   <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-coral/15 text-[9px] font-bold text-coral">✓</span>
@@ -265,7 +270,7 @@ export default function ContactSection() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-coral/15 text-[9px] font-bold text-coral">✓</span>
-                  100% Privacy Assured
+                  See our Privacy Policy
                 </span>
               </div>
             </form>

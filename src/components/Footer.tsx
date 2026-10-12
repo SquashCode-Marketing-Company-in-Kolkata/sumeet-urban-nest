@@ -22,8 +22,8 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="mt-5 hidden max-w-md text-sm font-light leading-7 text-[#8a8a8a] md:block md:text-base">
-              Khamardih, Shankar Nagar first BOHK Homes.
+            <p className="mt-5 hidden max-w-md text-sm font-light leading-7 text-[#5e5e5e] md:block md:text-base">
+              Khamardih, Shankar Nagar&apos;s first BOHK homes.
               <span className="block">Designed to open out your everyday.</span>
             </p>
           </div>
@@ -32,7 +32,7 @@ export default function Footer() {
             <h2 className="mb-4 text-sm font-medium tracking-[0.48em] text-[#555555] md:text-base">
               CORPORATE
             </h2>
-            <address className="text-sm font-light not-italic leading-7 text-[#8a8a8a] md:text-base">
+            <address className="text-sm font-light not-italic leading-7 text-[#5e5e5e] md:text-base">
               Sumeet Business Park,
               <span className="block">Pachpedi Naka, Raipur, Chhattisgarh</span>
             </address>
@@ -63,14 +63,14 @@ export default function Footer() {
               rera.cgstate.gov.in
             </a>
           </p>
-          <p className="mt-3 text-xs text-[#aaa49c] md:text-sm">
-            &copy; 2026 Sumeet Infraventures. All renderings are indicative and subject to change.
-          </p>
-          <p className="mt-3 text-[10px] leading-relaxed text-[#8a847c]">
+          <p className="mt-3 text-[10px] leading-relaxed text-[#625a52]">
             <a href="https://squashcode.com/" className="transition-colors hover:text-coral">
-              Developed and maintained by SquashCode
+              Developed and Designed by SquashCode
             </a>
+            <span className="mx-2 text-[#c7c0b7]" aria-hidden="true">|</span>
+            &copy; 2026 Sumeet Infracon Pvt. Ltd. All renderings are indicative and subject to change.
           </p>
+          <p className="mt-3 text-xs"><Link href="/privacy-policy" className="text-[#777169] underline transition-colors hover:text-coral">Privacy Policy</Link></p>
         </div>
       </div>
     </footer>

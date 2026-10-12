@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const MOBILE_QUERY = "(max-width: 639px)";
+const CAROUSEL_INTERVAL = 3500;
 
 const landmarkProjects = [
   {
@@ -54,6 +57,58 @@ const stats = [
 
 export default function DeveloperSection() {
   const [activeProject, setActiveProject] = useState(0);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const isUserScrollRef = useRef(false);
+  const resumeTimeoutRef = useRef<number | undefined>(undefined);
+
+  // Auto-advance the landmark carousel on phones.
+  useEffect(() => {
+    if (isCarouselPaused || !window.matchMedia(MOBILE_QUERY).matches) return;
+    const interval = window.setInterval(() => {
+      setActiveProject((index) => (index + 1) % landmarkProjects.length);
+    }, CAROUSEL_INTERVAL);
+    return () => window.clearInterval(interval);
+  }, [isCarouselPaused]);
+
+  // Keep the active card in view, unless the change came from the user swiping.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || !window.matchMedia(MOBILE_QUERY).matches) return;
+    if (isUserScrollRef.current) {
+      isUserScrollRef.current = false;
+      return;
+    }
+    const card = track.children[activeProject] as HTMLElement | undefined;
+    if (card) track.scrollTo({ left: card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2, behavior: "smooth" });
+  }, [activeProject]);
+
+  useEffect(() => () => window.clearTimeout(resumeTimeoutRef.current), []);
+
+  const pauseCarousel = () => {
+    window.clearTimeout(resumeTimeoutRef.current);
+    setIsCarouselPaused(true);
+  };
+
+  const resumeCarouselLater = () => {
+    window.clearTimeout(resumeTimeoutRef.current);
+    resumeTimeoutRef.current = window.setTimeout(() => setIsCarouselPaused(false), 5000);
+  };
+
+  const syncActiveFromScroll = () => {
+    const track = trackRef.current;
+    if (!track || !isCarouselPaused) return;
+    const cards = Array.from(track.children) as HTMLElement[];
+    const center = track.scrollLeft + track.clientWidth / 2;
+    const nearest = cards.reduce((best, card, index) => {
+      const distance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - center);
+      return distance < best.distance ? { index, distance } : best;
+    }, { index: 0, distance: Infinity }).index;
+    if (nearest !== activeProject) {
+      isUserScrollRef.current = true;
+      setActiveProject(nearest);
+    }
+  };
 
   return (
     <section
@@ -71,8 +126,8 @@ export default function DeveloperSection() {
             <span className="h-px w-8 bg-[#2c2b29]/25 sm:w-12" />
           </div>
 
-          <h2 className="w-full text-center whitespace-nowrap text-[12px] min-[380px]:text-[14px] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-[0.12em] min-[380px]:tracking-[0.16em] sm:tracking-[0.22em] text-coral uppercase pl-[0.12em]">
-            A B O U T &nbsp; D E V E L O P E R
+          <h2 className="w-full text-center whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
+            DEVELOPER
           </h2>
 
           <p className="section-description mx-auto mt-5 max-w-2xl font-light text-[#736c66]">
@@ -84,25 +139,20 @@ export default function DeveloperSection() {
         <div className="mb-12 overflow-hidden rounded-[28px] border border-[#2B2623]/8 bg-white shadow-[0_20px_60px_rgba(43,38,35,0.06)] sm:rounded-[36px] lg:mb-16">
           <div className="grid lg:grid-cols-12">
             {/* Left: Brand Identity Box */}
-            <div className="flex flex-col justify-between border-b border-[#2B2623]/8 bg-[#FBF9F6] p-8 sm:p-10 lg:col-span-5 lg:border-b-0 lg:border-r lg:p-14">
+            <div className="flex flex-col justify-between border-b border-[#2B2623]/8 bg-[#FBF9F6] p-8 sm:p-10 lg:col-span-5 lg:border-b-0 lg:border-r lg:p-10">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-coral/25 bg-coral/10 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-coral">
-                  <span className="h-1.5 w-1.5 rounded-full bg-coral animate-pulse" />
-                  Sumeet Infracon Pvt. Ltd.
-                </div>
-
-                <div className="mt-8 flex items-center">
+                <div className="flex items-center">
                   <Image
                     src="/images/interior/sumeet-infracon-logo.webp"
                     alt="Sumeet Infracon"
                     width={1268}
                     height={1241}
-                    className="h-auto w-36 sm:w-44 object-contain"
-                    priority
+                    className="h-auto w-36 sm:w-44 lg:w-32 object-contain"
+                    sizes="(min-width: 640px) 176px, 144px"
                   />
                 </div>
 
-                <blockquote className="mt-8 text-xl font-light leading-snug tracking-tight text-[#2B2623] sm:text-2xl">
+                <blockquote className="mt-8 text-xl font-light leading-snug tracking-tight text-[#2B2623] sm:text-2xl lg:mt-6 lg:text-xl">
                   &ldquo;A beacon of changing skylines and elevated lifestyles.&rdquo;
                 </blockquote>
 
@@ -111,7 +161,7 @@ export default function DeveloperSection() {
                 </p>
               </div>
 
-              <div className="mt-10 border-t border-[#2B2623]/10 pt-5 text-xs text-[#736c66]">
+              <div className="mt-10 border-t border-[#2B2623]/10 pt-5 text-xs text-[#736c66] lg:mt-8 lg:pt-4">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-coral">
                   Corporate Headquarters
                 </span>
@@ -122,21 +172,18 @@ export default function DeveloperSection() {
             </div>
 
             {/* Right: Vision Story & Metrics */}
-            <div className="flex flex-col justify-between p-8 sm:p-10 lg:col-span-7 lg:p-14">
-              <div className="section-description space-y-4 text-[#615953]">
+            <div className="flex flex-col justify-between p-8 sm:p-10 lg:col-span-7 lg:p-10">
+              <div className="section-description space-y-4 text-[#615953] lg:space-y-3 lg:text-[14px] lg:leading-6">
                 <p className="font-normal text-[#2B2623]">
-                  Sumeet Infracon Pvt. Ltd. is a Raipur-based real estate development company with a strong foothold in Chhattisgarh&apos;s growing property landscape.
+                  Sumeet Infracon Pvt. Ltd. is a Raipur-based developer known for premium residential and commercial projects, built on quality construction and well-connected locations.
                 </p>
                 <p>
-                  Known for delivering premium residential and commercial developments, the company has built a reputation for quality construction, modern amenities, and strategically chosen locations that offer residents and businesses seamless connectivity and lasting value.
-                </p>
-                <p>
-                  With landmark projects like Sumeet City of Dreams, Sumeet Landscape, and the iconic Sumeet Trade Centre at Pachpedi Naka — Raipur&apos;s first ultra-premium corporate hub — Sumeet Infracon continues to redefine the standards of living and working spaces across the region.
+                  Its landmarks include Sumeet City of Dreams, Sumeet Landscape and Sumeet Trade Centre at Pachpedi Naka, Raipur&apos;s first ultra-premium corporate hub.
                 </p>
               </div>
 
               {/* 4 Architectural Metric Counters */}
-              <div className="mt-10 grid grid-cols-1 gap-3 border-t border-[#2B2623]/8 pt-8 sm:grid-cols-3 sm:gap-4">
+              <div className="mt-10 grid grid-cols-1 gap-3 border-t border-[#2B2623]/8 pt-8 sm:grid-cols-3 sm:gap-4 lg:mt-7 lg:pt-6">
                 {stats.map((s) => (
                   <div key={s.label} className="min-w-0 rounded-xl bg-[#FAF8F5] p-4 text-left transition hover:bg-white hover:shadow-sm">
                     <p className="text-2xl font-light tracking-tight text-coral sm:text-3xl">
@@ -171,8 +218,14 @@ export default function DeveloperSection() {
             </p>
           </div>
 
-          {/* 4 Interactive Cards Grid */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* 4 Interactive Cards: swipeable auto carousel on phones, grid from sm up */}
+          <div
+            ref={trackRef}
+            onTouchStart={pauseCarousel}
+            onTouchEnd={resumeCarouselLater}
+            onScroll={syncActiveFromScroll}
+            className="relative -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:py-0 lg:grid-cols-4"
+          >
             {landmarkProjects.map((project, index) => {
               const isSelected = activeProject === index;
               return (
@@ -180,7 +233,7 @@ export default function DeveloperSection() {
                   key={project.id}
                   type="button"
                   onClick={() => setActiveProject(index)}
-                  className={`group relative flex flex-col justify-between overflow-hidden rounded-[24px] border p-6 text-left transition-all duration-300 sm:p-7 ${
+                  className={`group relative flex w-[85%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[24px] border p-6 text-left sm:w-auto transition-all duration-300 sm:p-7 ${
                     isSelected
                       ? "border-coral bg-white shadow-[0_16px_40px_rgba(232,115,74,0.14)] -translate-y-1.5 ring-2 ring-coral/20"
                       : "border-[#2B2623]/10 bg-white/80 hover:-translate-y-1 hover:border-coral/50 hover:bg-white hover:shadow-md"
@@ -224,6 +277,20 @@ export default function DeveloperSection() {
                 </button>
               );
             })}
+          </div>
+
+          {/* Carousel position dots (phones only) */}
+          <div className="mt-5 flex justify-center gap-2 sm:hidden">
+            {landmarkProjects.map((project, index) => (
+              <button
+                key={project.id}
+                type="button"
+                onClick={() => setActiveProject(index)}
+                aria-label={`Show ${project.name}`}
+                aria-current={activeProject === index ? "true" : undefined}
+                className={`h-2 rounded-full transition-all duration-300 ${activeProject === index ? "w-6 bg-coral" : "w-2 bg-[#2B2623]/20"}`}
+              />
+            ))}
           </div>
         </div>
       </div>

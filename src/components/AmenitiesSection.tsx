@@ -261,19 +261,18 @@ export default function AmenitiesSection() {
           <div className="mb-3 flex items-center justify-center gap-2.5 sm:mb-4 sm:gap-3">
             <span className="h-px w-6 bg-[#2c2b29]/25 sm:w-12" />
             <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-              Curated Lifestyle · 03
+              Curated Lifestyle · 02
             </span>
             <span className="h-px w-6 bg-[#2c2b29]/25 sm:w-12" />
           </div>
 
-          <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.18em] sm:tracking-[0.28em] text-coral uppercase">
-            A M E N I T I E S
+          <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
+            AMENITIES
           </h2>
 
           <p className="section-description mx-auto mt-4 sm:mt-6 max-w-[680px] text-[#6d625c]">
-            From the courtyard to the podium greens up to rooftop skies, every
-            space at Sumeet Urban Nest is designed to extend your day beyond the
-            indoors.
+            From courtyard greens to open skies above, every space at Sumeet
+            Urban Nest invites you to take your day outdoors.
           </p>
         </div>
 
@@ -290,9 +289,9 @@ export default function AmenitiesSection() {
                 <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#ffc79b]">
                   Outdoor living
                 </p>
-                <h4 className="text-lg font-semibold sm:text-xl md:text-2xl">
+                <h3 className="text-lg font-semibold sm:text-xl md:text-2xl">
                   Podium + Ground
-                </h4>
+                </h3>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2 sm:gap-1.5 sm:p-5 lg:grid-cols-1">
@@ -304,7 +303,7 @@ export default function AmenitiesSection() {
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f8f1e8] sm:h-12 sm:w-12 [&>svg]:h-7 [&>svg]:w-7 sm:[&>svg]:h-8 sm:[&>svg]:w-8">
                     {amenity.icon}
                   </div>
-                  <p className="section-description font-medium text-[#2c2b29]">
+                  <p className="section-description font-medium text-[#2c2b29] lg:text-[14px] lg:leading-6">
                     {amenity.name}
                   </p>
                 </div>
@@ -324,9 +323,9 @@ export default function AmenitiesSection() {
                 <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#ffc79b]">
                   Under open skies
                 </p>
-                <h4 className="text-lg font-semibold sm:text-xl md:text-2xl">
+                <h3 className="text-lg font-semibold sm:text-xl md:text-2xl">
                   Rooftop
-                </h4>
+                </h3>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2 sm:gap-1.5 sm:p-5 lg:grid-cols-1">
@@ -338,7 +337,7 @@ export default function AmenitiesSection() {
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f8f1e8] sm:h-12 sm:w-12 [&>svg]:h-7 [&>svg]:w-7 sm:[&>svg]:h-8 sm:[&>svg]:w-8">
                     {amenity.icon}
                   </div>
-                  <p className="section-description font-medium text-[#2c2b29]">
+                  <p className="section-description font-medium text-[#2c2b29] lg:text-[14px] lg:leading-6">
                     {amenity.name}
                   </p>
                 </div>
@@ -358,9 +357,9 @@ export default function AmenitiesSection() {
                 <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#ffc79b]">
                   Wellness + community
                 </p>
-                <h4 className="text-lg font-semibold sm:text-xl md:text-2xl">
+                <h3 className="text-lg font-semibold sm:text-xl md:text-2xl">
                   Club
-                </h4>
+                </h3>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2 sm:gap-1.5 sm:p-5 lg:grid-cols-1">
@@ -372,7 +371,7 @@ export default function AmenitiesSection() {
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f8f1e8] sm:h-12 sm:w-12 [&>svg]:h-7 [&>svg]:w-7 sm:[&>svg]:h-8 sm:[&>svg]:w-8">
                     {amenity.icon}
                   </div>
-                  <p className="section-description font-medium text-[#2c2b29]">
+                  <p className="section-description font-medium text-[#2c2b29] lg:text-[14px] lg:leading-6">
                     {amenity.name}
                   </p>
                 </div>

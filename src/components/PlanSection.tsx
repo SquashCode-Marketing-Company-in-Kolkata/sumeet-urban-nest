@@ -93,7 +93,7 @@ function MasterPlanExperience({ fullscreen = false, onClose }: { fullscreen?: bo
   return (
     <div className={`relative overflow-hidden ${fullscreen ? "flex h-screen items-center bg-[#2B2623]" : "bg-[#F7F5F0]"}`}>
       <div ref={mapRef} className="relative w-full">
-        <Image src="/images/exterior/top-view.webp" alt="Sumeet Urban Nest aerial master plan" width={1920} height={1080} priority className="block h-auto w-full" sizes="100vw" />
+        <Image src="/images/exterior/top-view.webp" alt="Sumeet Urban Nest aerial master plan" width={1920} height={1080} className="block h-auto w-full" sizes="(max-width: 1080px) 100vw, 1080px" />
         <div className="absolute left-3 top-3 bg-[#2B2623]/80 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm sm:left-5 sm:top-5 sm:text-xs">Aerial master plan</div>
 
         {mapMarkers.map((item) => {
@@ -252,7 +252,7 @@ export default function PlanSection() {
   }, [fullscreen]);
 
   return (
-    <section id="plan" className="scroll-mt-20 bg-white pt-14 pb-4 md:pt-24 md:pb-10">
+    <section className="scroll-mt-20 bg-white pt-14 pb-4 md:pt-24 md:pb-10">
       <div className="mx-auto mb-10 w-full max-w-[1720px] px-6 sm:px-10 md:px-14 md:mb-14 lg:px-20 xl:px-28 2xl:px-36">
         <div className="flex items-end justify-between gap-3 sm:gap-5">
           <div>
@@ -260,12 +260,12 @@ export default function PlanSection() {
             <div className="mb-3 flex items-center gap-2.5 sm:mb-4 sm:gap-3">
               <span className="h-px w-6 bg-[#2c2b29]/25 sm:w-12" />
               <span className="section-eyebrow font-semibold uppercase text-[#2c2b29]">
-                Architectural Layout · 07
+                Architectural Layout · 05
               </span>
             </div>
 
-            <h2 className="text-[13px] min-[380px]:text-[15px] sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.14em] min-[380px]:tracking-[0.18em] sm:tracking-[0.28em] text-coral uppercase">
-              M A S T E R &nbsp; P L A N
+            <h2 className="whitespace-nowrap text-base min-[380px]:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.2em] sm:tracking-[0.28em] text-coral uppercase">
+              MASTER PLAN
             </h2>
           </div>
 

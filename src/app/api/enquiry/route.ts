@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createLeadReceipt, getSiteLeadType, isSubmissionId, leadCookieName, receiptLifetimeSeconds, sha256, validForms, type LeadForm } from "@/lib/leadConversion";
+import { submitSalesforceLead } from "@/lib/salesforceWebToLead";
 
 function formatConfiguration(value: unknown) {
   const configuration = String(value ?? "").toLowerCase();
@@ -117,6 +118,14 @@ export async function POST(request: Request) {
     const saved = await response.json();
     if (!saved || saved.id !== submissionId || saved.lead_type !== leadType || saved.form_source !== form) {
       return NextResponse.json({ error: "Submission could not be confirmed." }, { status: 409 });
+    }
+
+    try {
+      await submitSalesforceLead({ fullName, phoneNumber, configuration, budget });
+    } catch {
+      // The same submission ID can retry Salesforce delivery without creating another database row.
+      console.error("Salesforce Web-to-Lead delivery failed after the lead was saved.");
+      return NextResponse.json({ error: "Unable to send enquiry to Salesforce. Please try again." }, { status: 502 });
     }
 
     if (webhookUrl && saved.inserted === true) {

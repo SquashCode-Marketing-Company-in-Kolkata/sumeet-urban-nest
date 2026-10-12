@@ -5,12 +5,12 @@
   "scripts": {
     "test": "node --test tests/*.test.cjs",
     "dev": "next dev",
-    "build": "next build",
-    "cf:build": "opennextjs-cloudflare build",
+    "build": "next build --webpack && opennextjs-cloudflare build --skipNextBuild",
+    "cf:build": "npm run build",
     "start": "next start",
     "lint": "eslint",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+    "preview": "npm run build && opennextjs-cloudflare preview",
+    "deploy": "npm run build && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "next": "16.3.8",

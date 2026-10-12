@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useEnquiry } from "@/components/EnquiryPanel";
+import { useWalkthroughVideo } from "@/components/WalkthroughVideo";
 
 const navLinks = [
   { name: "Amenities", href: "#amenities", id: "amenities" },
   { name: "Gallery", href: "#gallery", id: "gallery" },
+  { name: "Walkthrough", href: "#walkthrough", id: "walkthrough" },
   { name: "Master Plan", href: "#plan", id: "plan" },
   { name: "Specifications", href: "#specifications", id: "specifications" },
   { name: "Location", href: "#location", id: "location" },
@@ -17,6 +19,7 @@ const navLinks = [
 
 export default function Header() {
   const { openEnquiry } = useEnquiry();
+  const openWalkthroughVideo = useWalkthroughVideo();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -67,6 +70,11 @@ export default function Header() {
     id: string
   ) => {
     e.preventDefault();
+    if (id === "walkthrough") {
+      setIsMobileMenuOpen(false);
+      openWalkthroughVideo();
+      return;
+    }
     setActiveSection(id);
     setIsMobileMenuOpen(false);
 
@@ -104,7 +112,9 @@ export default function Header() {
               alt="Sumeet Urban Nest"
               width={1921}
               height={819}
-              priority
+              sizes="(min-width: 380px) 115px, 105px"
+              loading="eager"
+              fetchPriority="low"
               className="h-auto w-[105px] min-[380px]:w-[115px] md:hidden"
             />
             <Image
@@ -112,7 +122,9 @@ export default function Header() {
               alt="Sumeet Urban Nest"
               width={1921}
               height={819}
-              priority
+              sizes="(min-width: 1536px) 155px, (min-width: 768px) 130px, 122px"
+              loading="eager"
+              fetchPriority="low"
               className={`hidden h-auto w-[105px] transition-all min-[380px]:w-[115px] sm:w-[122px] md:block md:w-[125px] lg:w-[125px] xl:w-[130px] 2xl:w-[155px] ${!isScrolled ? "drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)]" : ""}`}
             />
           </Link>
@@ -154,7 +166,7 @@ export default function Header() {
 
             <button
               type="button"
-              onClick={openEnquiry}
+              onClick={() => openEnquiry("Enquire Now")}
               className="whitespace-nowrap rounded-full bg-coral px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_10px_26px_rgba(232,115,74,0.32)] transition duration-300 hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_14px_30px_rgba(232,115,74,0.38)] xl:px-5 xl:py-2 xl:text-[11px]"
             >
               Enquire Now
@@ -167,7 +179,7 @@ export default function Header() {
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-              className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-colors ${
+              className={`flex h-11 w-11 items-center justify-center rounded-lg border transition-colors ${
                 isScrolled
                   ? "border-gray-200 bg-gray-50 text-gray-800"
                   : "border-white/30 bg-black/30 text-white backdrop-blur-sm max-md:border-gray-200 max-md:bg-gray-50 max-md:text-gray-800"
@@ -198,7 +210,7 @@ export default function Header() {
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.id)}
-                    className={`flex items-center justify-between rounded-lg px-4 py-2.5 text-sm font-medium uppercase transition-colors ${
+                    className={`flex min-h-11 items-center justify-between rounded-lg px-4 py-3 text-sm font-medium uppercase transition-colors ${
                       isActive
                         ? "font-semibold text-coral"
                         : "text-gray-800 hover:bg-gray-50 hover:text-coral"
@@ -216,7 +228,7 @@ export default function Header() {
                 type="button"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  openEnquiry();
+                  openEnquiry("Enquire Now");
                 }}
                 className="mt-2 flex h-11 w-full items-center justify-center rounded-full bg-coral px-5 text-center text-[10px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_10px_26px_rgba(232,115,74,0.32)] transition hover:bg-coral-dark"
               >
