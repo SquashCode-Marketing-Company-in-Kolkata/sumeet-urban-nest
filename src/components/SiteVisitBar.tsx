@@ -83,8 +83,8 @@ export default function SiteVisitBar() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
             </span>
             <span className="min-w-0">
-              <span className="block whitespace-nowrap text-[11px] font-bold tracking-[0.08em] text-[#2B2623]">FIRST 25 BOOKINGS</span>
-              <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium text-[#2B2623]/65">70% on possession · 30% now</span>
+              <span className="block text-[11px] font-bold leading-tight tracking-[0.08em] text-[#2B2623]"><span className="whitespace-nowrap">Pay 30% Now</span> <span className="whitespace-nowrap">70% on Possession</span></span>
+              <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium text-[#2B2623]/65">First 25 Bookings Only</span>
             </span>
           </div>
 

@@ -64,7 +64,7 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-[1720px] flex-col justify-end gap-4 px-6 pb-16 pt-24 sm:px-10 sm:pb-20 md:gap-6 md:px-14 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:px-20 lg:pb-[max(4.5rem,11svh)] xl:px-28 2xl:px-36">
-        <h1 className="min-w-0 text-[clamp(1.125rem,5.9vw,2.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] md:text-[clamp(2.5rem,min(4.6vw,9svh),4.75rem)] lg:text-[clamp(2.125rem,min(3.4vw,9svh),4.75rem)] xl:text-[clamp(2.5rem,min(4.1vw,9svh),4.75rem)]">
+        <h1 className="min-w-0 text-[clamp(1.125rem,5.9vw,2.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] md:text-[clamp(2.5rem,min(4.6vw,9svh),4.75rem)] lg:text-[calc(clamp(2.125rem,min(3.4vw,9svh),4.75rem)_-_4px)] xl:text-[calc(clamp(2.5rem,min(4.1vw,9svh),4.75rem)_-_4px)]">
           <span className="block whitespace-nowrap font-normal">Khamardih, Shankar Nagar&apos;s</span>
           <span className="block whitespace-nowrap">
             First <span className="font-semibold text-coral">BOHK Homes</span>!
