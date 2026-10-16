@@ -266,6 +266,7 @@ export function EnquiryProvider({ children }: { children: ReactNode }) {
                     </div>
                   </div>
 
+                  {/* Pincode hidden for now; backend still accepts it as optional.
                   <div className="order-4">
                     <label htmlFor="sticky-location" className="sr-only">
                       Location / Pincode
@@ -278,7 +279,7 @@ export function EnquiryProvider({ children }: { children: ReactNode }) {
                       placeholder="Location / Pincode (optional)"
                       className={fieldClassName}
                     />
-                  </div>
+                  </div> */}
 
                   <label className="order-5 flex items-start gap-2 text-xs leading-5 text-[#514c46]">
                     <input required type="checkbox" name="contactConsent" className="mt-1 accent-[#E8734A]" />

@@ -173,7 +173,7 @@ export default function ContactSection() {
                   {errors.phoneNumber && <p className="mt-1 text-[11px] font-medium text-red-500">{errors.phoneNumber}</p>}
                 </div>
 
-                <div className="order-3">
+                <div className="order-3 sm:col-span-2">
                   <label htmlFor="contactBudget" className="sr-only">
                     Your Budget <span className="text-coral">*</span>
                   </label>
@@ -225,6 +225,7 @@ export default function ContactSection() {
                   {errors.interest && <p className="mt-1 text-[11px] font-medium text-red-500">{errors.interest}</p>}
                 </div>
 
+                {/* Pincode hidden for now; backend still accepts it as optional.
                 <div className="order-4">
                   <label htmlFor="contactPincode" className="sr-only">
                     Current Pincode (optional)
@@ -240,7 +241,7 @@ export default function ContactSection() {
                     }`}
                   />
                   {errors.locationPincode && <p className="mt-1 text-[11px] font-medium text-red-500">{errors.locationPincode}</p>}
-                </div>
+                </div> */}
               </div>
 
               {/* Submit Button */}

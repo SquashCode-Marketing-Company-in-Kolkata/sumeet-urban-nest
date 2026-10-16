@@ -83,7 +83,7 @@ export default function SiteVisitBar() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
             </span>
             <span className="min-w-0">
-              <span className="block text-[11px] font-bold leading-tight tracking-[0.08em] text-[#2B2623]"><span className="whitespace-nowrap">Pay 30% Now</span> <span className="whitespace-nowrap">70% on Possession</span></span>
+              <span className="block whitespace-nowrap text-[11px] font-bold leading-tight tracking-[0.08em] text-[#2B2623]">30:70 Payment Plan</span>
               <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium text-[#2B2623]/65">First 25 Bookings Only</span>
             </span>
           </div>
@@ -159,7 +159,8 @@ export default function SiteVisitBar() {
                 )}
                 {errors.bhk && <span className="mt-1 block pl-3 text-[9px] text-red-600 lg:absolute lg:left-3 lg:top-full lg:whitespace-nowrap lg:pl-0">{errors.bhk}</span>}
               </div>
-              <Field name="pincode" placeholder="Pincode (optional)" inputMode="numeric" autoComplete="postal-code" error={errors.pincode} required={false} className={`${inputClassName} w-full`} wrapperClassName="order-5 w-[120px] min-w-[120px] shrink-0" />
+              {/* Pincode hidden for now; backend still accepts it as optional.
+              <Field name="pincode" placeholder="Pincode (optional)" inputMode="numeric" autoComplete="postal-code" error={errors.pincode} required={false} className={`${inputClassName} w-full`} wrapperClassName="order-5 w-[120px] min-w-[120px] shrink-0" /> */}
               <button
                 type="submit"
                 className="group order-6 flex h-12 w-[210px] shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-coral px-4 text-[11px] font-bold tracking-[0.06em] text-white shadow-[0_10px_26px_rgba(232,115,74,0.32)] transition duration-300 hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_14px_30px_rgba(232,115,74,0.38)] focus:outline-none focus:ring-4 focus:ring-coral/20 lg:w-[168px] xl:w-[180px]"
