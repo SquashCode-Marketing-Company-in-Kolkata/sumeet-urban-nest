@@ -14,7 +14,7 @@ import {
 
 import { getLeadTracking, redirectToThankYou } from "@/lib/leadTracking";
 import SelectChevron from "@/components/SelectChevron";
-import PaymentOffer from "@/components/PaymentOffer";
+import ProjectHighlights from "@/components/ProjectHighlights";
 
 type EnquiryContextValue = {
   /** Opens the enquiry popup; `ctaLabel` becomes the popup's submit button text. */
@@ -146,7 +146,7 @@ export function EnquiryProvider({ children }: { children: ReactNode }) {
                 Share your details and our team will contact you with plans,
                 pricing and availability.
               </p>
-              <PaymentOffer tone="onCoral" className="mt-5" />
+              <ProjectHighlights tone="onCoral" className="mt-5" />
             </div>
 
             <div className="px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-9">

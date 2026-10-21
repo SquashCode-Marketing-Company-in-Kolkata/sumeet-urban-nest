@@ -113,8 +113,7 @@ export default function Header() {
               width={1921}
               height={819}
               sizes="(min-width: 380px) 115px, 105px"
-              loading="eager"
-              fetchPriority="low"
+              loading="lazy"
               className="h-auto w-[105px] min-[380px]:w-[115px] md:hidden"
             />
             <Image
@@ -123,8 +122,7 @@ export default function Header() {
               width={1921}
               height={819}
               sizes="(min-width: 1536px) 155px, (min-width: 768px) 130px, 122px"
-              loading="eager"
-              fetchPriority="low"
+              loading="lazy"
               className={`hidden h-auto w-[105px] transition-all min-[380px]:w-[115px] sm:w-[122px] md:block md:w-[125px] lg:w-[125px] xl:w-[130px] 2xl:w-[155px] ${!isScrolled ? "drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)]" : ""}`}
             />
           </Link>
