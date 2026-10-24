@@ -80,11 +80,11 @@ export default function SiteVisitBar() {
         <div className="relative flex items-center gap-2 lg:min-h-[68px] lg:gap-2.5 lg:px-3 lg:py-2">
           <div aria-hidden="true" className="pointer-events-none hidden w-[230px] shrink-0 items-center justify-start gap-2.5 text-left xl:flex">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 11.5 12 4l9 7.5"/><path strokeLinecap="round" strokeLinejoin="round" d="M5.5 9.5V20h13V9.5M10 20v-5h4v5"/></svg>
             </span>
             <span className="min-w-0">
-              <span className="block whitespace-nowrap text-[11px] font-bold leading-tight tracking-[0.08em] text-[#2B2623]">30:70 Payment Plan</span>
-              <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium text-[#2B2623]/65">First 25 Bookings Only</span>
+              <span className="block whitespace-nowrap text-[11px] font-bold leading-tight tracking-[0.08em] text-[#2B2623]">2 &amp; 3 BHK BOHK Homes</span>
+              <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium text-[#2B2623]/65">Khamardih, Shankar Nagar</span>
             </span>
           </div>
 

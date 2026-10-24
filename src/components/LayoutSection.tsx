@@ -55,7 +55,7 @@ export default function LayoutSection() {
                 </span>
               </div>
               <div className="relative mt-11 border-b border-[#eee5df] pb-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a817b]">Residences per floor</p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#6E665E]">Residences per floor</p>
                 <h3 className="mt-3 text-2xl font-light leading-tight tracking-[-0.035em] text-[#292929] sm:text-[34px]">
                 {block.units}
                 </h3>

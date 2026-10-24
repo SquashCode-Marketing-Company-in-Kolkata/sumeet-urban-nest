@@ -183,7 +183,7 @@ export default function SpecificationsSection() {
               )}
             </div>
             <div>
-              <p className="mb-3 text-sm text-white/45">{String(activeIndex + 1).padStart(2, "0")} / {String(specifications.length).padStart(2, "0")}</p>
+              <p className="mb-3 text-sm text-white/60">{String(activeIndex + 1).padStart(2, "0")} / {String(specifications.length).padStart(2, "0")}</p>
               <h3 className="text-3xl font-medium sm:text-4xl lg:text-5xl">{specifications[activeIndex].title}</h3>
             </div>
           </div>

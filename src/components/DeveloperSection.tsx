@@ -192,7 +192,7 @@ export default function DeveloperSection() {
                     <p className="mt-1 break-words text-[10px] font-bold uppercase leading-relaxed tracking-[0.08em] text-[#2B2623]">
                       {s.label}
                     </p>
-                    {s.detail && <p className="mt-0.5 break-words text-[10px] leading-relaxed text-[#857d76]">
+                    {s.detail && <p className="mt-0.5 break-words text-[10px] leading-relaxed text-[#6E665E]">
                       {s.detail}
                     </p>}
                   </div>
@@ -213,7 +213,7 @@ export default function DeveloperSection() {
                 Flagship Regional Landmarks
               </h3>
             </div>
-            <p className="text-xs text-[#857d76]">
+            <p className="text-xs text-[#6E665E]">
               Click any milestone to explore its impact across Raipur
             </p>
           </div>
@@ -242,7 +242,7 @@ export default function DeveloperSection() {
                   <div>
                     {/* Top Number & Category Pill */}
                     <div className="flex items-center justify-between">
-                      <span className={`font-mono text-xs font-bold tracking-widest ${isSelected ? "text-coral" : "text-[#A89F95] group-hover:text-coral"}`}>
+                      <span className={`font-mono text-xs font-bold tracking-widest ${isSelected ? "text-coral" : "text-[#6E665E] group-hover:text-coral"}`}>
                         {project.id}
                       </span>
                       <span className={`rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${isSelected ? "bg-coral text-white" : "bg-[#2B2623]/5 text-[#6B635B]"}`}>
@@ -265,7 +265,7 @@ export default function DeveloperSection() {
                   </div>
 
                   {/* Bottom Location */}
-                  <div className="mt-6 flex items-center gap-1.5 border-t border-[#2B2623]/8 pt-4 text-[11px] font-medium text-[#8A8177]">
+                  <div className="mt-6 flex items-center gap-1.5 border-t border-[#2B2623]/8 pt-4 text-[11px] font-medium text-[#6E665E]">
                     <span className="text-coral">📍</span>
                     <span>{project.location}</span>
                   </div>
@@ -280,7 +280,7 @@ export default function DeveloperSection() {
           </div>
 
           {/* Carousel position dots (phones only) */}
-          <div className="mt-5 flex justify-center gap-2 sm:hidden">
+          <div className="mt-4 flex justify-center gap-1 sm:hidden">
             {landmarkProjects.map((project, index) => (
               <button
                 key={project.id}
@@ -288,8 +288,10 @@ export default function DeveloperSection() {
                 onClick={() => setActiveProject(index)}
                 aria-label={`Show ${project.name}`}
                 aria-current={activeProject === index ? "true" : undefined}
-                className={`h-2 rounded-full transition-all duration-300 ${activeProject === index ? "w-6 bg-coral" : "w-2 bg-[#2B2623]/20"}`}
-              />
+                className="flex h-6 min-w-6 items-center justify-center"
+              >
+                <span className={`h-2 rounded-full transition-all duration-300 ${activeProject === index ? "w-6 bg-coral" : "w-2 bg-[#2B2623]/20"}`} />
+              </button>
             ))}
           </div>
         </div>

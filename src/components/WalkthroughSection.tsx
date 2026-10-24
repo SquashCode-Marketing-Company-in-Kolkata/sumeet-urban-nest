@@ -64,7 +64,7 @@ export default function WalkthroughSection() {
             {/* Redesigned Circular Luxury Play Control */}
             <button
               type="button"
-              aria-label="Play walkthrough video"
+              aria-label="Press to play walkthrough video"
               onClick={openVideo}
               className="group/btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-coral/50"
             >
@@ -123,7 +123,7 @@ export default function WalkthroughSection() {
                 Step into Khamardih, Shankar Nagar&apos;s first BOHK homes through an elevated visual tour across 1.76 acres of lush landscaped podium greens, rooftop recreation, and skyward towers.
               </p>
 
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#7d7168]">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#6E665E]">
                 <span className="flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-coral" />
                   1.76 Acre Enclave
