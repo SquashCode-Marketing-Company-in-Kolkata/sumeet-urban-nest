@@ -83,15 +83,6 @@ export default function HeroSection() {
           onClick={() => openEnquiry("Book Your 2 & 3 BHK Apartments")}
           className="hero-offer group relative hidden w-[300px] shrink-0 cursor-pointer self-start rounded-[22px] border-2 border-dashed border-[#F0A566]/70 bg-[#14100D]/80 px-5 pb-6 pt-6 text-left text-white shadow-[0_24px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-colors duration-200 hover:border-[#F0A566] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#F0A566]/60 md:block lg:self-end lg:w-[clamp(270px,22vw,330px)] lg:px-6 lg:pb-7 lg:pt-7"
         >
-          <span className="absolute -top-3.5 left-5 flex items-center gap-1.5">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-coral text-white shadow-[0_8px_20px_rgba(232,115,74,0.45)]">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
-            </span>
-            <span className="rounded-full bg-coral px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white shadow-[0_8px_20px_rgba(232,115,74,0.45)]">
-              2 &amp; 3 BHK BOHK Homes
-            </span>
-          </span>
-
           <span className="flex items-stretch gap-4">
             <span className="flex-1">
               <span className="block text-[clamp(2.25rem,min(3.4vw,7.5svh),3.25rem)] font-semibold leading-none tracking-[-0.04em] text-[#F0A566]">
@@ -126,11 +117,7 @@ export default function HeroSection() {
           onClick={() => openEnquiry("Reveal Price")}
           className="group w-full max-w-[360px] cursor-pointer rounded-2xl border border-white/70 bg-[#fffaf5]/95 px-3.5 py-2.5 text-left text-[#2B2623] shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-md transition-transform duration-200 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-coral/70 md:hidden"
         >
-          <span className="flex items-center justify-between gap-2">
-            <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-[0.08em] text-coral-dark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3 w-3 shrink-0" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8Z"/><path strokeLinecap="round" d="M5 21h14"/></svg>
-              2 &amp; 3 BHK BOHK Homes
-            </span>
+          <span className="flex items-center justify-end">
             <span className="shrink-0 text-[8px] font-medium text-[#7B716B]">Khamardih, Raipur</span>
           </span>
           <span className="mt-2 flex items-center justify-between gap-1.5">
